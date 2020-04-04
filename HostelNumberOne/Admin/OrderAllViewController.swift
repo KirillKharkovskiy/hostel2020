@@ -45,7 +45,6 @@ class OrderAllViewController: UIViewController,UITableViewDataSource,UITableView
         approverOrderProfile()
         
         
-        
         Database.database().reference().child("Buscet").child(String(sortedKey)).removeValue() // удаление
         self.performSegue(withIdentifier: "cancel", sender: self)
         

@@ -80,10 +80,13 @@ class userServicesDemonstrationViewController: UIViewController {
     
     
     @IBAction func buttonAddBuscet(_ sender: Any) {
-        buscet()
-        showAlert(title: "Услуга добавлена", message: "")
+        if textFieldDateOrder.text!.isEmpty{
+            showAlert(title: "Выберите дату", message: "")
+        }else{
+            buscet()
+            showAlert(title: "Услуга добавлена", message: "")
+        }
     }
-    
   
     func buscet(){
         let ref = Database.database().reference().child("users").child(user.uid!).child("Buscet").child("Services")

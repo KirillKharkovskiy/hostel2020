@@ -1,22 +1,25 @@
 import UIKit
 import Firebase
-class orderUserTableViewController: UITableViewController {
-    var rooms = [Rooms]()
-    var services = [Servicess]()
-    var profile = [userAndAdmin]()
-    var buscet = [Category]()
-    var dictKey = [String]()
-    var arrayRooms = [Rooms].self
- 
+
+class NewOrderClientViewController: UIViewController {
+    @IBOutlet weak var tableView: UITableView!
+       var rooms = [Rooms]()
+       var services = [Servicess]()
+       var profile = [userAndAdmin]()
+       var buscet = [Category]()
+       var dictKey = [String]()
+       var arrayRooms = [Rooms].self
     
-    @IBAction func unwindToThisOrderMain(segue: UIStoryboardSegue){ // объявление сегвея для возврата на этот вью
-    }
+       
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView()
+  setupTableView()
+        
     }
+
     func setupTableView(){
+        
         tableView.tableFooterView = UIView(frame: CGRect.zero) // мметод что бы не прорисовывались лишнии ячейки
         tableView.reloadData()
     }
@@ -25,31 +28,30 @@ class orderUserTableViewController: UITableViewController {
         observdata()
         tableView.reloadData()
     }
-     
+    
+
+
 }
 // MARK: - Table view data source
-extension orderUserTableViewController{
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return dictKey.count
+extension NewOrderClientViewController: UITableViewDataSource,UITableViewDelegate{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       return dictKey.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! OrderUserTableViewCell
-        let dictIndex = dictKey[indexPath.row]
-        
-        cell.mailLabel.text = dictIndex
-        cell.accessoryType = .disclosureIndicator
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! OrderUserTableViewCell
+          let dictIndex = dictKey[indexPath.row]
+        cell.mailLabel.text =  dictIndex
+           cell.accessoryType = .disclosureIndicator
         return cell
     }
+    
+    
 }
 
 
 // MARK: - download child"Buscet"
-extension orderUserTableViewController{
+extension NewOrderClientViewController{
     func observdata(){
         let ref = Database.database().reference(withPath: "Buscet")
         ref.observe(.value, with: { (snapshot) in
@@ -110,7 +112,7 @@ extension orderUserTableViewController{
  
 }
 // MARK: - segue
-extension orderUserTableViewController{
+extension NewOrderClientViewController{
     func toDisplayServ(indexPath : IndexPath) -> [String] {
         var _dickKey = [String]()
         _dickKey = [dictKey[indexPath.row]]

@@ -11,6 +11,7 @@
 		381ABE5B238D6726007EFCE6 /* ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381ABE5A238D6726007EFCE6 /* ShowAlert.swift */; };
 		381ABE5D238D69BA007EFCE6 /* AddServicessAdminTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381ABE5C238D69BA007EFCE6 /* AddServicessAdminTableViewController.swift */; };
 		381ABE5F238D6A1A007EFCE6 /* ServicessUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381ABE5E238D6A1A007EFCE6 /* ServicessUserTableViewController.swift */; };
+		ED08A6A824390FC40042F26B /* ComplitionOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED08A6A724390FC40042F26B /* ComplitionOrderTableViewCell.swift */; };
 		ED11BA822355DC350081EE31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11BA812355DC350081EE31 /* AppDelegate.swift */; };
 		ED11BA842355DC350081EE31 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11BA832355DC350081EE31 /* ViewController.swift */; };
 		ED11BA872355DC350081EE31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED11BA852355DC350081EE31 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 		ED43E6A323679ECA00D80C43 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED43E6A223679ECA00D80C43 /* File.swift */; };
 		ED451A912402A47A0029D7C8 /* extensionDemonstretionRooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED451A902402A47A0029D7C8 /* extensionDemonstretionRooms.swift */; };
 		ED452091236082B8004EB338 /* ServicessUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED452090236082B8004EB338 /* ServicessUserTableViewCell.swift */; };
+		ED4E227724352B55004F1CF1 /* ComplitonOrderAdminClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4E227624352B55004F1CF1 /* ComplitonOrderAdminClient.swift */; };
 		ED5F586723A94B5D0003CE23 /* ProfileUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5F586623A94B5D0003CE23 /* ProfileUserTableViewController.swift */; };
 		ED5F586923A94C8E0003CE23 /* ProfileUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5F586823A94C8E0003CE23 /* ProfileUserTableViewCell.swift */; };
 		ED5F700D23F19A89002BD9FF /* orderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5F700C23F19A89002BD9FF /* orderViewCell.swift */; };
@@ -43,6 +45,8 @@
 		EDED5EF72359F29B00264388 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDED5EF62359F29B00264388 /* User.swift */; };
 		EDED5EF9235A202200264388 /* Rooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDED5EF8235A202200264388 /* Rooms.swift */; };
 		EDED5EFD235A4B0700264388 /* RoomsUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDED5EFC235A4B0700264388 /* RoomsUserTableViewCell.swift */; };
+		EDF74F0A2438F43A005EBEAE /* MainClientAdminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF74F092438F43A005EBEAE /* MainClientAdminVC.swift */; };
+		EDF74F0E2438FFD7005EBEAE /* NewOrderClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF74F0D2438FFD7005EBEAE /* NewOrderClientViewController.swift */; };
 		EDF79540235B122C00B2D62D /* RoomsAdminTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF7953F235B122C00B2D62D /* RoomsAdminTableViewCell.swift */; };
 		EDF8629323F5B76C002B1D91 /* OrderAllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8629223F5B76C002B1D91 /* OrderAllViewController.swift */; };
 /* End PBXBuildFile section */
@@ -54,6 +58,7 @@
 		591482C67BCE8234AA84CCF0 /* Pods-HostelNumberOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HostelNumberOne.release.xcconfig"; path = "Target Support Files/Pods-HostelNumberOne/Pods-HostelNumberOne.release.xcconfig"; sourceTree = "<group>"; };
 		629C05C0647209F9689D365D /* Pods_HostelNumberOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HostelNumberOne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DB5C4B0222F7EBA365D8330 /* Pods-HostelNumberOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HostelNumberOne.debug.xcconfig"; path = "Target Support Files/Pods-HostelNumberOne/Pods-HostelNumberOne.debug.xcconfig"; sourceTree = "<group>"; };
+		ED08A6A724390FC40042F26B /* ComplitionOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplitionOrderTableViewCell.swift; sourceTree = "<group>"; };
 		ED11BA7E2355DC350081EE31 /* HostelNumberOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HostelNumberOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED11BA812355DC350081EE31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED11BA832355DC350081EE31 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +72,7 @@
 		ED43E6A223679ECA00D80C43 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		ED451A902402A47A0029D7C8 /* extensionDemonstretionRooms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionDemonstretionRooms.swift; sourceTree = "<group>"; };
 		ED452090236082B8004EB338 /* ServicessUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicessUserTableViewCell.swift; sourceTree = "<group>"; };
+		ED4E227624352B55004F1CF1 /* ComplitonOrderAdminClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplitonOrderAdminClient.swift; sourceTree = "<group>"; };
 		ED5F586623A94B5D0003CE23 /* ProfileUserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileUserTableViewController.swift; path = HostelNumberOne/Users/Profile/ProfileUserTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		ED5F586823A94C8E0003CE23 /* ProfileUserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileUserTableViewCell.swift; path = HostelNumberOne/Users/Profile/ProfileUserTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		ED5F700C23F19A89002BD9FF /* orderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = orderViewCell.swift; path = ../Supports/orderViewCell.swift; sourceTree = "<group>"; };
@@ -88,6 +94,8 @@
 		EDED5EF62359F29B00264388 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EDED5EF8235A202200264388 /* Rooms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rooms.swift; sourceTree = "<group>"; };
 		EDED5EFC235A4B0700264388 /* RoomsUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsUserTableViewCell.swift; sourceTree = "<group>"; };
+		EDF74F092438F43A005EBEAE /* MainClientAdminVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainClientAdminVC.swift; sourceTree = "<group>"; };
+		EDF74F0D2438FFD7005EBEAE /* NewOrderClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrderClientViewController.swift; sourceTree = "<group>"; };
 		EDF7953F235B122C00B2D62D /* RoomsAdminTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsAdminTableViewCell.swift; sourceTree = "<group>"; };
 		EDF8629223F5B76C002B1D91 /* OrderAllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderAllViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,6 +164,15 @@
 				ED11BA8D2355DC350081EE31 /* Info.plist */,
 			);
 			path = HostelNumberOne;
+			sourceTree = "<group>";
+		};
+		ED4E227824352B68004F1CF1 /* ComplitionOrder */ = {
+			isa = PBXGroup;
+			children = (
+				ED08A6A724390FC40042F26B /* ComplitionOrderTableViewCell.swift */,
+				ED4E227624352B55004F1CF1 /* ComplitonOrderAdminClient.swift */,
+			);
+			name = ComplitionOrder;
 			sourceTree = "<group>";
 		};
 		ED71E6052359BCCD00AF6619 /* Admin */ = {
@@ -259,6 +276,8 @@
 		EDDC931A23D9B7C8000AE4E3 /* Order */ = {
 			isa = PBXGroup;
 			children = (
+				EDF74F092438F43A005EBEAE /* MainClientAdminVC.swift */,
+				ED4E227824352B68004F1CF1 /* ComplitionOrder */,
 				EDF8629123F5B6B8002B1D91 /* orderAll */,
 				EDF8629023F5B68E002B1D91 /* orderDatatime */,
 			);
@@ -308,6 +327,7 @@
 			children = (
 				ED7E18CA239FCCE30032BFC3 /* OrderUserTableViewCell.swift */,
 				ED7E18C8239A9F180032BFC3 /* orderUserTableViewController.swift */,
+				EDF74F0D2438FFD7005EBEAE /* NewOrderClientViewController.swift */,
 			);
 			path = orderDatatime;
 			sourceTree = "<group>";
@@ -454,9 +474,12 @@
 				ED43E6A323679ECA00D80C43 /* File.swift in Sources */,
 				ED38F7CE238B14B600840C88 /* RegistrationTableViewController.swift in Sources */,
 				EDED5EF72359F29B00264388 /* User.swift in Sources */,
+				ED08A6A824390FC40042F26B /* ComplitionOrderTableViewCell.swift in Sources */,
 				381ABE5F238D6A1A007EFCE6 /* ServicessUserTableViewController.swift in Sources */,
 				EDED5EF9235A202200264388 /* Rooms.swift in Sources */,
+				EDF74F0A2438F43A005EBEAE /* MainClientAdminVC.swift in Sources */,
 				EDD47D9423E3426E00A33EE3 /* Encodable.swift in Sources */,
+				EDF74F0E2438FFD7005EBEAE /* NewOrderClientViewController.swift in Sources */,
 				ED5F586723A94B5D0003CE23 /* ProfileUserTableViewController.swift in Sources */,
 				ED71E6042359BBA000AF6619 /* EmployeesViewController.swift in Sources */,
 				EDBC5FB82360648200ACC7B8 /* ServicessAdminTableViewCell.swift in Sources */,
@@ -466,6 +489,7 @@
 				EDBC5FB623605F0C00ACC7B8 /* Servicess.swift in Sources */,
 				EDBC5FB2235FB06F00ACC7B8 /* RoomsAdminTableViewController.swift in Sources */,
 				EDD5C8C9241AD438003DCFB1 /* userServicesDemonstrationViewController.swift in Sources */,
+				ED4E227724352B55004F1CF1 /* ComplitonOrderAdminClient.swift in Sources */,
 				EDC9BA4C23832FE600EA6CEA /* BuscetStruct.swift in Sources */,
 				ED7E18CB239FCCE30032BFC3 /* OrderUserTableViewCell.swift in Sources */,
 				ED11BA822355DC350081EE31 /* AppDelegate.swift in Sources */,
