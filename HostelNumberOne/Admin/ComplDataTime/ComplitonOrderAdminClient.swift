@@ -1,60 +1,54 @@
 import UIKit
 import Firebase
-
-class NewOrderClientViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
-       var rooms = [Rooms]()
-       var services = [Servicess]()
-       var profile = [userAndAdmin]()
-       var buscet = [Category]()
-       var dictKey = [String]()
-       var arrayRooms = [Rooms].self
-    
-       @IBAction func unwindToThisOrderMain(segue: UIStoryboardSegue){ // объявление сегвея для возврата на этот вью
-         }
+class ComplitonOrderAdminClient: UIViewController {
+   @IBOutlet weak var tableView: UITableView!
+    var rooms = [Rooms]()
+         var services = [Servicess]()
+         var profile = [userAndAdmin]()
+         var buscet = [Category]()
+         var dictKey = [String]()
+         var arrayRooms = [Rooms].self
+    @IBAction func unwindToThisComplitionMain(segue: UIStoryboardSegue){ // объявление сегвея для возврата на этот вью
+          }
+     
     
     override func viewDidLoad() {
         super.viewDidLoad()
   setupTableView()
-        
-    }
-
-    func setupTableView(){
-        
-        tableView.tableFooterView = UIView(frame: CGRect.zero) // мметод что бы не прорисовывались лишнии ячейки
-        tableView.reloadData()
-    }
-    override func viewWillAppear(_ animated: Bool) { // включаем свайп
-        super.viewWillAppear(true)
-        observdata()
-        tableView.reloadData()
-    }
     
-
-
+    }
+    func setupTableView(){
+          
+          tableView.tableFooterView = UIView(frame: CGRect.zero) // мметод что бы не прорисовывались лишнии ячейки
+          tableView.reloadData()
+      }
+    
+    override func viewWillAppear(_ animated: Bool) { // включаем свайп
+         super.viewWillAppear(true)
+         observdata()
+         tableView.reloadData()
+     }
 }
-// MARK: - Table view data source
-extension NewOrderClientViewController: UITableViewDataSource,UITableViewDelegate{
+
+// MARK: - TableView
+extension ComplitonOrderAdminClient: UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return dictKey.count
+        return dictKey.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! OrderUserTableViewCell
-          let dictIndex = dictKey[indexPath.row]
-        cell.mailLabel.text =  dictIndex
-           cell.accessoryType = .disclosureIndicator
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ComplitionOrderTableViewCell
+        let dictIndex = dictKey[indexPath.row]
+        cell.titleLabel.text = dictIndex
+         cell.accessoryType = .disclosureIndicator
         return cell
     }
-    
-    
 }
 
-
-// MARK: - download child"Buscet"
-extension NewOrderClientViewController{
+// MARK: - download child"ApprovedOrders"
+extension ComplitonOrderAdminClient{
     func observdata(){
-        let ref = Database.database().reference(withPath: "Buscet")
+        let ref = Database.database().reference(withPath: "ApprovedOrders")
         ref.observe(.value, with: { (snapshot) in
             self.rooms.removeAll()
             self.services.removeAll()
@@ -113,7 +107,7 @@ extension NewOrderClientViewController{
  
 }
 // MARK: - segue
-extension NewOrderClientViewController{
+extension ComplitonOrderAdminClient{
     func toDisplayServ(indexPath : IndexPath) -> [String] {
         var _dickKey = [String]()
         _dickKey = [dictKey[indexPath.row]]
@@ -121,7 +115,7 @@ extension NewOrderClientViewController{
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) { // объявление сегвея передача данных
-        if segue.identifier == "detailSegue"{
+        if segue.identifier == "ComplitionOrder"{
             let dvc = segue.destination as? OrderAllViewController
  
             let indexPath = tableView.indexPathForSelectedRow
@@ -138,6 +132,3 @@ extension NewOrderClientViewController{
         
     }
 }
-
-
-

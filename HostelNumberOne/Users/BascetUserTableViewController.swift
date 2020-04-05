@@ -69,13 +69,14 @@ class BascetUserTableViewController: UITableViewController {
 
     //  MARK: - Order
     @IBAction func toOrder(_ sender: UIBarButtonItem) {
+        if rooms.isEmpty || serv.isEmpty {
+            self.showAlert(title: "Ваша корзина пуста", message:"")
+        }else{
         orderBuscet()
         self.showAlert(title:"Заказ успешно выполнен", message: "В скором времени с вами свяжется администратор")
         
          Database.database().reference(withPath:"users").child(user.uid!).child("Buscet").removeValue()
-     
-        
-        
+        }
     }
     
     func orderBuscet(){
