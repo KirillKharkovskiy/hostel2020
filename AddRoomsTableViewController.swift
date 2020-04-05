@@ -61,7 +61,7 @@ extension AddRoomsTableViewController{
     func uploadImagee(){
         let imageName = NSUUID().uuidString
         if let imgData = self.imageLabel.image?.pngData() {
-            guard let name = nameLabel.text, let price = priceLabel.text, name != "", price != "" else {
+            guard let name = nameLabel.text, let price = priceLabel.text,let desriptionRoom = descriptionLabel.text, name != "", price != "", desriptionRoom != "" else {
                 print("Form is not valid")
                 return
             }
@@ -76,7 +76,7 @@ extension AddRoomsTableViewController{
                             print("Good")
                         }
                         guard let url = url else { return }
-                        let rooms = Rooms(title: name, userId: "user - Id", price: price, status: false, order: false, image: url.absoluteString, dataTimeOrder: "nil", dateArrival: "nil", dateDeparture: "nil")
+                        let rooms = Rooms(title: name, userId: "user - Id", price: price, status: false, order: false, image: url.absoluteString, dataTimeOrder: "nil", dateArrival: "nil", dateDeparture: "nil", dateApprovedOrders:"nil", descriptionRoom: desriptionRoom)
                         if let title = rooms.title {
                             let romsRef = self?.ref?.child(title.lowercased())
                             romsRef?.setValue(rooms.convertToDictionary())

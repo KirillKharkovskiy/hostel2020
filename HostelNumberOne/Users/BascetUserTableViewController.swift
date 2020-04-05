@@ -69,7 +69,7 @@ class BascetUserTableViewController: UITableViewController {
 
     //  MARK: - Order
     @IBAction func toOrder(_ sender: UIBarButtonItem) {
-        if rooms.isEmpty || serv.isEmpty {
+        if rooms.isEmpty && serv.isEmpty {
             self.showAlert(title: "Ваша корзина пуста", message:"")
         }else{
         orderBuscet()

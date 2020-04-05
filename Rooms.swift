@@ -11,6 +11,8 @@ class Rooms:NSObject, Codable {
     var dataTimeOrder: String?
     var dateArrival: String?
     var dateDeparture: String?
+    var dateApprovedOrders: String?
+    var descriptionRoom: String?
     
     enum CodingKeys: String, CodingKey {
         case title
@@ -22,8 +24,10 @@ class Rooms:NSObject, Codable {
         case dataTimeOrder
         case dateArrival
         case dateDeparture
+        case dateApprovedOrders
+        case descriptionRoom
     }
-    init(title: String,userId: String,price: String, status: Bool, order: Bool, image: String, dataTimeOrder: String, dateArrival: String, dateDeparture: String) {
+    init(title: String,userId: String,price: String, status: Bool, order: Bool, image: String, dataTimeOrder: String, dateArrival: String, dateDeparture: String, dateApprovedOrders: String, descriptionRoom: String) {
         self.title = title
         self.userId = userId
         self.price = price
@@ -33,6 +37,8 @@ class Rooms:NSObject, Codable {
         self.dataTimeOrder = dataTimeOrder
         self.dateArrival = dateArrival
         self.dateDeparture = dateDeparture
+        self.dateApprovedOrders = dateApprovedOrders
+        self.descriptionRoom = descriptionRoom
     }
     init(snapshot: DataSnapshot) {
         let snapshotValue = snapshot.value as! [String: Any]
@@ -45,6 +51,8 @@ class Rooms:NSObject, Codable {
         self.dataTimeOrder = snapshotValue["dataTimeOrder"] as? String
         self.dateArrival = snapshotValue["dateArrival"] as? String
         self.dateDeparture = snapshotValue["dateDeparture"] as? String
+        self.dateApprovedOrders = snapshotValue["dateApprovedOrders"] as? String
+        self.descriptionRoom = snapshotValue["descriptionRoom"] as? String
     }
     override init() {
         self.title = nil
@@ -56,6 +64,8 @@ class Rooms:NSObject, Codable {
         self.dataTimeOrder = nil
         self.dateArrival = nil
         self.dateDeparture = nil
+        self.dateApprovedOrders = nil
+        self.descriptionRoom = nil
     }
     func convertToDictionary() -> Any {
         return ["title": title!,
@@ -66,6 +76,8 @@ class Rooms:NSObject, Codable {
                 "image": image!,
                 "dataTimeOrder": dataTimeOrder!,
                 "dateArrival": dateArrival!,
-                "dateDeparture": dateDeparture!]
+                "dateDeparture": dateDeparture!,
+                "dateApprovedOrders": dateApprovedOrders!,
+                "descriptionRoom": descriptionRoom!]
     }
 }

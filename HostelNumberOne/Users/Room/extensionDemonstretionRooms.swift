@@ -36,7 +36,7 @@ extension roomsDemostretionViewController{
                             if key != "" {
                                 for item in value.Rooms{
                                     if self.rooms.title == item.value.title{
-                                        let _roomss = Rooms(title: item.value.title!, userId: item.value.userId!, price: item.value.price!, status: item.value.status!, order: item.value.order!, image: item.value.image!, dataTimeOrder:item.value.dataTimeOrder!, dateArrival: item.value.dateArrival!, dateDeparture: item.value.dateDeparture!)
+                                        let _roomss = Rooms(title: item.value.title!, userId: item.value.userId!, price: item.value.price!, status: item.value.status!, order: item.value.order!, image: item.value.image!, dataTimeOrder:item.value.dataTimeOrder!, dateArrival: item.value.dateArrival!, dateDeparture: item.value.dateDeparture!, dateApprovedOrders: item.value.dateApprovedOrders!, descriptionRoom: item.value.descriptionRoom!)
                                         self._rooms.append(_roomss)
                                         //сортировка по имени если совпадение то добавляется иначе выход с цикла
                                     }

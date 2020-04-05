@@ -37,16 +37,19 @@ class roomsDemostretionViewController: UIViewController {
     
     // MARK: - OrderButton
     @IBAction func orderButton(_ sender: Any) {
-        reservationCheck()
+        if (String(textFieldDateDeparture.text!)<=String(textFieldDateArrival.text!)) || textFieldDateDeparture.text!.isEmpty && ((textFieldDateArrival.text!.isEmpty) )  {//если дата выезда меньше даты заезда или поля пустые 
+            self.showAlert(title: "Введенные данные некорректны", message: "")
+        }else{
+            reservationCheck()
+        }
     }
     
     func reservationCheck(){
         arrayOrderArrival.removeAll()
         arrayOrderDeparture.removeAll()
         
-        if (String(textFieldDateDeparture.text!)<=String(textFieldDateArrival.text!)){//если дата выезда меньше даты заезда 
-            self.showAlert(title: "Введенные данные некорректны", message: "")
-        }else if _rooms.count == 0 { //если массив пустой то его нет в ветки брони
+
+            if _rooms.count == 0 { //если массив пустой то его нет в ветки брони
             buscet()
             self.showAlert(title: "Номер добавлен", message: "")
         
@@ -61,11 +64,13 @@ class roomsDemostretionViewController: UIViewController {
                         self.showAlert(title: "Номер занят" , message: "Номер в эти даты занят c \(arrayOrderArrival) по \(arrayOrderDeparture))")
                         break
                     }else{
-                        buscet()
-                        self.showAlert(title: "Номер добавлен", message: "")
+//                        buscet()
+//                        self.showAlert(title: "Номер добавлен", message: "")
                     }
                 }
             }
+                buscet()
+                self.showAlert(title: "Номер добавлен", message: "")
         }
 }
     func buscet(){

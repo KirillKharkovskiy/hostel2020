@@ -61,7 +61,7 @@ extension AddServicessAdminTableViewController{
     func uploadImagee(){
         let imageName = NSUUID().uuidString
         if let imgData = self.imageViewLogo.image?.pngData() {
-            guard let name = nameServicessLabel.text, let price = priceServicessLabel.text, name != "", price != "" else {
+            guard let name = nameServicessLabel.text, let price = priceServicessLabel.text, let descriptionServ = descriptionServicessLabel.text , name != "", price != "", descriptionServ != "" else {
                 print("Form is not valid")
                 return
             }
@@ -76,7 +76,7 @@ extension AddServicessAdminTableViewController{
                             print("Good")
                         }
                         guard let url = url else { return }
-                        let serv = Servicess(title:name,price:price,userId:"userId",order:false,status:false,image: url.absoluteString, dataTimeOrder:"", dateComplitionServ:"", countServices:"")
+                        let serv = Servicess(title:name,price:price,userId:"userId",order:false,status:false,image: url.absoluteString, dataTimeOrder:"", dateComplitionServ:"", dateApprovedOrders:"", descriptionServ:descriptionServ)
                         if let title = serv.title {
                             let servRef = self?.ref?.child(title.lowercased())
                             servRef?.setValue(serv.convertToDictionary())

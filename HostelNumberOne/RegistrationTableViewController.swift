@@ -33,7 +33,7 @@ class RegistrationTableViewController: UITableViewController {
             
             if error == nil && user != nil {
                 print("User created!")
-                let profil = userAndAdmin(email: email, fullName: fullName, isAdmin:"false", passport: passport, password: password, userId: uid, phoneNumber: phoneNumber, dataTimeOrder: "non")
+                let profil = userAndAdmin(email: email, fullName: fullName, isAdmin:"false", passport: passport, password: password, userId: uid, phoneNumber: phoneNumber, dataTimeOrder: "non", dateApprovedOrders: "non")
                 if let fulname = profil.fullName{
                     let userRef = databaseRef.child(fulname.lowercased())
                     userRef.setValue(profil.convertToDictionary())

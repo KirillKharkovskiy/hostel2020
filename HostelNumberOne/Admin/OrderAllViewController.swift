@@ -44,9 +44,9 @@ class OrderAllViewController: UIViewController,UITableViewDataSource,UITableView
         approveOrderServices()
         approverOrderProfile()
         
-        
         Database.database().reference().child("Buscet").child(String(sortedKey)).removeValue() // удаление
         self.performSegue(withIdentifier: "cancel", sender: self)
+        tableView.reloadData()
         
         // создание Push-уведомления
     }
@@ -56,6 +56,7 @@ class OrderAllViewController: UIViewController,UITableViewDataSource,UITableView
         for i in sortedArrayRooms {
             if let title = i.title{
                 i.status = true
+                i.dateApprovedOrders = datatime()
                 let romsRef = ref.child(title.lowercased())
                 romsRef.setValue(i.convertToDictionary())
             }
@@ -66,6 +67,7 @@ class OrderAllViewController: UIViewController,UITableViewDataSource,UITableView
         for i in sortedArrayServices {
             if let title = i.title{
                 i.status = true
+                i.dateApprovedOrders = datatime()
                 let servRef = ref.child(title.lowercased())
                 servRef.setValue(i.convertToDictionary())
             }
@@ -75,6 +77,7 @@ class OrderAllViewController: UIViewController,UITableViewDataSource,UITableView
         let ref = Database.database().reference().child("ApprovedOrders").child(datatime()).child("Profile")
         for i in sortedProfile{
             if let profile = i.fullName{
+                i.dateApprovedOrders = datatime()
                 let profRef = ref.child(profile.lowercased())
                 profRef.setValue(i.convertToDictionary())
             }
@@ -116,7 +119,7 @@ class OrderAllViewController: UIViewController,UITableViewDataSource,UITableView
             let rooms = sortedArrayRooms[indexPath.row]
             cell.titleLabel.text = rooms.title
             cell.priceLabel.text = rooms.price
-            cell.statusLabel.text = "rooms.status"
+            cell.statusLabel.text = "\(rooms.dateArrival!)-\(rooms.dateDeparture!)"
             cell.imageViewLabel.contentMode = .scaleAspectFill
             cell.imageViewLabel.layer.cornerRadius = 20
             cell.imageViewLabel.clipsToBounds = true
@@ -138,7 +141,7 @@ class OrderAllViewController: UIViewController,UITableViewDataSource,UITableView
             let services = sortedArrayServices[indexPath.row]
             cell.titleLabel.text = services.title
             cell.priceLabel.text = services.price
-            cell.statusLabel.text = "services.status"
+            cell.statusLabel.text = services.dateComplitionServ
             cell.imageViewLabel.contentMode = .scaleAspectFill
             cell.imageViewLabel.layer.cornerRadius = 20
             cell.imageViewLabel.clipsToBounds = true
@@ -163,7 +166,7 @@ extension OrderAllViewController{
     func sortedRooms(){
         for item in _rooms{
             if [item.dataTimeOrder] == _dictKey {
-                let rooms = Rooms(title: item.title!, userId: item.userId!, price: item.price!, status: item.status!, order: item.order!, image: item.image!, dataTimeOrder: item.dataTimeOrder!, dateArrival: item.dateArrival!, dateDeparture: item.dateDeparture!)
+                let rooms = Rooms(title: item.title!, userId: item.userId!, price: item.price!, status: item.status!, order: item.order!, image: item.image!, dataTimeOrder: item.dataTimeOrder!, dateArrival: item.dateArrival!, dateDeparture: item.dateDeparture!, dateApprovedOrders: item.dateApprovedOrders!, descriptionRoom: item.descriptionRoom!)
                 self.sortedArrayRooms.append(rooms)
                 self.sectionContent.append(rooms)
                 
@@ -174,7 +177,7 @@ extension OrderAllViewController{
     func sortedServic(){
         for item in _services{
             if [item.dataTimeOrder] == _dictKey {
-                let serv = Servicess(title: item.title!, price: item.price!, userId: item.userId!, order: item.order!, status: item.status!, image: item.image!, dataTimeOrder: item.dataTimeOrder!, dateComplitionServ: item.dateComplitionServ!, countServices: item.countServices!)
+                let serv = Servicess(title: item.title!, price: item.price!, userId: item.userId!, order: item.order!, status: item.status!, image: item.image!, dataTimeOrder: item.dataTimeOrder!, dateComplitionServ: item.dateComplitionServ!, dateApprovedOrders: item.dateApprovedOrders!, descriptionServ: item.descriptionServ!)
                 self.sortedArrayServices.append(serv)
                 self.sectionContent.append(serv)
                 tableView.reloadData()
@@ -186,7 +189,7 @@ extension OrderAllViewController{
             for itemRooms in sortedArrayRooms{
                 sortedKey.removeAll()
                 if itemProfile.email == itemRooms.userId {
-                    let prof = userAndAdmin(email: itemProfile.email!, fullName: itemProfile.fullName!, isAdmin: itemProfile.isAdmin!, passport: itemProfile.passport!, password: itemProfile.password!, userId: itemProfile.userId!, phoneNumber: itemProfile.phoneNumber!, dataTimeOrder: itemProfile.dataTimeOrder!)
+                    let prof = userAndAdmin(email: itemProfile.email!, fullName: itemProfile.fullName!, isAdmin: itemProfile.isAdmin!, passport: itemProfile.passport!, password: itemProfile.password!, userId: itemProfile.userId!, phoneNumber: itemProfile.phoneNumber!, dataTimeOrder: itemProfile.dataTimeOrder!, dateApprovedOrders: itemProfile.dateApprovedOrders!)
                     self.sortedProfile.append(prof)
                     self.sectionContent.append(prof)
                     

@@ -1,15 +1,18 @@
-//
-//  ComlitionAllCellTableViewCell.swift
-//  HostelNumberOne
-//
-//  Created by Кирилл on 05.04.2020.
-//  Copyright © 2020 Кирилл. All rights reserved.
-//
 
 import UIKit
 
 class ComlitionAllCellTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var fullNameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var passportLabel: UILabel!
+    @IBOutlet weak var telephoneLabel: UILabel!
+    @IBOutlet weak var passwordLabel: UILabel!
+    @IBOutlet weak var userIdLabel: UILabel!
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var imageViewLabel: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -9,7 +9,8 @@ class userAndAdmin:NSObject, Codable {
     var password: String?
     var userId: String?
     var phoneNumber: String?
-    var dataTimeOrder : String?
+    var dataTimeOrder: String?
+    var dateApprovedOrders: String?
     
     enum CodingKeys: String, CodingKey {
         case email
@@ -20,9 +21,10 @@ class userAndAdmin:NSObject, Codable {
         case userId
         case phoneNumber
         case dataTimeOrder
+        case dateApprovedOrders
         
     }
-    init(email: String, fullName: String, isAdmin: String, passport: String, password:String , userId: String, phoneNumber:String, dataTimeOrder:String) {
+    init(email: String, fullName: String, isAdmin: String, passport: String, password:String , userId: String, phoneNumber:String, dataTimeOrder:String, dateApprovedOrders: String) {
         self.email = email
         self.fullName = fullName
         self.isAdmin = isAdmin
@@ -31,6 +33,7 @@ class userAndAdmin:NSObject, Codable {
         self.userId = userId
         self.phoneNumber = phoneNumber
         self.dataTimeOrder = dataTimeOrder
+        self.dateApprovedOrders = dateApprovedOrders
     }
     
     init(snapshot: DataSnapshot) {
@@ -43,6 +46,7 @@ class userAndAdmin:NSObject, Codable {
         self.userId = snapshotValue?["userId"] as? String
         self.phoneNumber = snapshotValue?["phoneNumber"] as? String
         self.dataTimeOrder = snapshotValue?["dataTimeOrder"] as? String
+        self.dateApprovedOrders = snapshotValue?["dateApprovedOrders"] as? String
     }
     override init() {
         self.email = nil
@@ -53,6 +57,7 @@ class userAndAdmin:NSObject, Codable {
         self.userId = nil
         self.phoneNumber = nil
         self.dataTimeOrder = nil
+        self.dateApprovedOrders = nil
     }
     func convertToDictionary() -> Any {
         return [
@@ -63,6 +68,7 @@ class userAndAdmin:NSObject, Codable {
             "password": password!,
             "userId": userId!,
             "phoneNumber": phoneNumber!,
-            "dataTimeOrder": dataTimeOrder]
+            "dataTimeOrder": dataTimeOrder!,
+            "dateApprovedOrders": dateApprovedOrders!]
     }
 }

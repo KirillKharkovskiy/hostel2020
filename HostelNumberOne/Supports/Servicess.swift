@@ -9,7 +9,8 @@ class Servicess:NSObject,Codable{
     var image : String?
     var dataTimeOrder : String?
     var dateComplitionServ: String?
-    var countServices : String?
+    var dateApprovedOrders : String?
+    var descriptionServ: String?
     
     enum CodingKeys: String, CodingKey {
         case title
@@ -20,9 +21,10 @@ class Servicess:NSObject,Codable{
         case image
         case dataTimeOrder
         case dateComplitionServ
-        case countServices
+        case dateApprovedOrders
+        case descriptionServ
     }
-    init(title: String, price: String, userId: String, order: Bool, status: Bool, image: String, dataTimeOrder: String, dateComplitionServ: String, countServices: String) {
+    init(title: String, price: String, userId: String, order: Bool, status: Bool, image: String, dataTimeOrder: String, dateComplitionServ: String, dateApprovedOrders: String, descriptionServ: String) {
         self.title = title
         self.price = price
         self.userId = userId
@@ -31,7 +33,8 @@ class Servicess:NSObject,Codable{
         self.image = image
         self.dataTimeOrder = dataTimeOrder
         self.dateComplitionServ = dateComplitionServ
-        self.countServices = countServices
+        self.dateApprovedOrders = dateApprovedOrders
+        self.descriptionServ = descriptionServ
     }
     init(dictionary: [AnyHashable: Any]) {
         self.title = dictionary["title"] as? String
@@ -42,7 +45,8 @@ class Servicess:NSObject,Codable{
         self.image = dictionary["image"] as? String
         self.dataTimeOrder = dictionary["dataTimeOrder"] as? String
         self.dateComplitionServ = dictionary["dateComplitionServ"] as? String
-        self.countServices = dictionary["countServices"] as? String
+        self.dateApprovedOrders = dictionary["dateApprovedOrders"] as? String
+        self.descriptionServ = dictionary["descriptionServ"] as? String
     }
     init(snapshot: DataSnapshot) {
         let snapshotValue = snapshot.value as! [String: AnyObject]
@@ -54,7 +58,8 @@ class Servicess:NSObject,Codable{
         self.image = snapshotValue["image"] as? String
         self.dataTimeOrder = snapshotValue["dataTimeOrder"] as? String
         self.dateComplitionServ = snapshotValue["dateComplitionServ"] as? String
-        self.countServices = snapshotValue["countServices"] as? String
+        self.dateApprovedOrders = snapshotValue["dateApprovedOrders"] as? String
+        self.descriptionServ = snapshotValue["descriptionServ"] as? String
     }
     override init() {
         self.title = nil
@@ -65,7 +70,8 @@ class Servicess:NSObject,Codable{
         self.image = nil
         self.dataTimeOrder = nil
         self.dateComplitionServ = nil
-        self.countServices = nil
+        self.dateApprovedOrders = nil
+        self.descriptionServ = nil
     }
     func convertToDictionary() -> Any {
         return ["title": title!,
@@ -75,7 +81,8 @@ class Servicess:NSObject,Codable{
                 "status": status!,
                 "image": image!,
                 "dataTimeOrder": dataTimeOrder!,
-            "dateComplitionServ": dateComplitionServ!,
-            "countServices": countServices!]
+                "dateComplitionServ": dateComplitionServ!,
+                "dateApprovedOrders": dateApprovedOrders!,
+                "descriptionServ": descriptionServ!]
     }
 }
