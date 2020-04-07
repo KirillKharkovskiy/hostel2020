@@ -1,34 +1,34 @@
 import UIKit
 import Firebase
 class ComplitonOrderAdminClient: UIViewController {
-   @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     var rooms = [Rooms]()
-         var services = [Servicess]()
-         var profile = [userAndAdmin]()
-         var buscet = [Category]()
-         var dictKey = [String]()
-         var arrayRooms = [Rooms].self
+    var services = [Servicess]()
+    var profile = [userAndAdmin]()
+    var buscet = [Category]()
+    var dictKey = [String]()
+    var arrayRooms = [Rooms].self
     
     @IBAction func unwindToThisComplitionMain(segue: UIStoryboardSegue){ // объявление сегвея для возврата на этот вью
-          }
-     
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-  setupTableView()
-    
+        setupTableView()
+        
     }
     func setupTableView(){
-          
-          tableView.tableFooterView = UIView(frame: CGRect.zero) // мметод что бы не прорисовывались лишнии ячейки
-          tableView.reloadData()
-      }
+        
+        tableView.tableFooterView = UIView(frame: CGRect.zero) // мметод что бы не прорисовывались лишнии ячейки
+        tableView.reloadData()
+    }
     
     override func viewWillAppear(_ animated: Bool) { // включаем свайп
-         super.viewWillAppear(true)
-         observdata()
-         tableView.reloadData()
-     }
+        super.viewWillAppear(true)
+        observdata()
+        tableView.reloadData()
+    }
 }
 
 // MARK: - TableView
@@ -41,7 +41,7 @@ extension ComplitonOrderAdminClient: UITableViewDataSource,UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ComplitionOrderTableViewCell
         let dictIndex = dictKey[indexPath.row]
         cell.titleLabel.text = dictIndex
-         cell.accessoryType = .disclosureIndicator
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
 }
@@ -74,7 +74,7 @@ extension ComplitonOrderAdminClient{
                         decodedDict!.forEach({ (arg0) in
                             let (key, value) = arg0
                             self.dictKey.append(key)
-
+                            
                             self.dictKey.sort(by:{$0 > $1})
                             print("Key-----------",self.dictKey)
                             
@@ -106,20 +106,20 @@ extension ComplitonOrderAdminClient{
             }
         })
     }
- 
+    
 }
 // MARK: - segue
 extension ComplitonOrderAdminClient{
-    func toDisplayServ(indexPath : IndexPath) -> [String] {
-        var _dickKey = [String]()
-        _dickKey = [dictKey[indexPath.row]]
+    func toDisplayServ(indexPath : IndexPath) -> String {
+        var _dickKey: String = ""
+        _dickKey = dictKey[indexPath.row]
         return _dickKey
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) { // объявление сегвея передача данных
         if segue.identifier == "ComplitionOrder"{
             let dvc = segue.destination as? ComplitionAllClientViewController
-
+            
             let indexPath = tableView.indexPathForSelectedRow
             dvc?._rooms.append(contentsOf: rooms)
             dvc?._services.append(contentsOf: services)
@@ -128,9 +128,7 @@ extension ComplitonOrderAdminClient{
                 print("error")
             }else{
                 dvc?._dictKey = toDisplayServ(indexPath: (indexPath!))
-
-                }
+            }
         }
-        
     }
 }

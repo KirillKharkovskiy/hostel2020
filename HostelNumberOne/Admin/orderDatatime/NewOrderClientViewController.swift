@@ -79,20 +79,25 @@ extension NewOrderClientViewController{
                                 for item in value.Rooms{
                                     if key == item.value.dataTimeOrder {
                                         // мб благодаря этому условию можно будет избежать дополнительной сортировки, но не факт
-                                    }
+                                    
                                     let _rooms = Rooms(title: item.value.title!, userId: item.value.userId!, price: item.value.price!, status: item.value.status!, order: item.value.order!, image: item.value.image!, dataTimeOrder:item.value.dataTimeOrder!, dateArrival: item.value.dateArrival!, dateDeparture: item.value.dateDeparture!, dateApprovedOrders: item.value.dateApprovedOrders!, descriptionRoom: item.value.descriptionRoom!)
                                     self.rooms.append(_rooms)
                                     self.tableView.reloadData()
+                                    }
                                 }
                                 for item in value.Services{
+                                     if key == item.value.dataTimeOrder {
                                     let _serv = Servicess(title: item.value.title!, price: item.value.price!, userId: item.value.userId!, order: item.value.order!, status: item.value.status!, image: item.value.image!, dataTimeOrder: item.value.dataTimeOrder!, dateComplitionServ: item.value.dateComplitionServ!, dateApprovedOrders: item.value.dateApprovedOrders!, descriptionServ: item.value.descriptionServ!)
                                     self.services.append(_serv)
                                     self.tableView.reloadData()
+                                    }
                                 }
                                 for item in value.Profile{
+                                     if key == item.value.dataTimeOrder {
                                     let _profil = userAndAdmin(email: item.value.email!, fullName: item.value.fullName!, isAdmin: item.value.isAdmin!, passport: item.value.passport!, password: item.value.password!, userId: item.value.userId!, phoneNumber: item.value.phoneNumber!, dataTimeOrder: item.value.dataTimeOrder!, dateApprovedOrders: item.value.dateApprovedOrders!)
                                     self.profile.append(_profil)
                                     self.tableView.reloadData()
+                                    }
                                 }
                             } else{
                                 print("key isEmpty")
@@ -107,9 +112,9 @@ extension NewOrderClientViewController{
 }
 // MARK: - segue
 extension NewOrderClientViewController{
-    func toDisplayServ(indexPath : IndexPath) -> [String] {
-        var _dickKey = [String]()
-        _dickKey = [dictKey[indexPath.row]]
+    func toDisplayServ(indexPath : IndexPath) -> String {
+        var _dickKey: String = ""
+        _dickKey = dictKey[indexPath.row]
         return _dickKey
     }
     

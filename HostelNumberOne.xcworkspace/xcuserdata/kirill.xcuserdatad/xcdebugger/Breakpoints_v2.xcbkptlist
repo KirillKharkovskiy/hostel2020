@@ -7,7 +7,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CF038186-E922-4636-BD55-EF407F2C65BB"
+            uuid = "74286F56-D8FA-419B-B10A-D8D86944F4AE"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -23,32 +23,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "50301E27-48DB-4CD9-8953-8CA9A30AAE85"
+            uuid = "E10398A4-523F-4410-977F-A3F15461EAA8"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HostelNumberOne/Admin/ComplitionAllClientViewController.swift"
+            filePath = "HostelNumberOne/Admin/OrderAllViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "buttonEvicttionClient(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9EEF52FA-9DD8-43E6-9333-E5757EC202C3"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HostelNumberOne/Admin/ComplitionAllClientViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
-            landmarkName = "sortedProfilefunc()"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "buttonOrderTrue(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

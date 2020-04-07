@@ -8,7 +8,7 @@ class OrderAllViewController: UIViewController,UITableViewDataSource,UITableView
     @IBOutlet weak var tableView: UITableView!
     var _rooms = [Rooms]()
     var _services = [Servicess]()
-    var _dictKey = [String]()
+    var _dictKey : String = ""
     var _profile = [userAndAdmin]()
     var sortedProfile = [userAndAdmin]()
     var sortedArrayRooms = [Rooms]()
@@ -43,8 +43,9 @@ class OrderAllViewController: UIViewController,UITableViewDataSource,UITableView
         approverOrderRoom()
         approveOrderServices()
         approverOrderProfile()
-        print("sortedKeyNEW------------",sortedKey)
-        Database.database().reference().child("Buscet").child(String(sortedKey)).removeValue() // удаление
+        print("sortedKey_dictKey_dictKey------------",_dictKey)
+        print("sortedKeyNEWsortedKeysortedKey------------",sortedKey)
+        Database.database().reference().child("Buscet").child(String(_dictKey)).removeValue() // удаление
         self.performSegue(withIdentifier: "cancel", sender: self)
         tableView.reloadData()
         
@@ -165,7 +166,7 @@ class OrderAllViewController: UIViewController,UITableViewDataSource,UITableView
 extension OrderAllViewController{
     func sortedRooms(){
         for item in _rooms{
-            if [item.dataTimeOrder] == _dictKey {
+            if [item.dataTimeOrder] == [_dictKey] {
                 let rooms = Rooms(title: item.title!, userId: item.userId!, price: item.price!, status: item.status!, order: item.order!, image: item.image!, dataTimeOrder: item.dataTimeOrder!, dateArrival: item.dateArrival!, dateDeparture: item.dateDeparture!, dateApprovedOrders: item.dateApprovedOrders!, descriptionRoom: item.descriptionRoom!)
                 self.sortedArrayRooms.append(rooms)
                 self.sectionContent.append(rooms)
@@ -176,7 +177,7 @@ extension OrderAllViewController{
     }
     func sortedServic(){
         for item in _services{
-            if [item.dataTimeOrder] == _dictKey {
+            if [item.dataTimeOrder] == [_dictKey] {
                 let serv = Servicess(title: item.title!, price: item.price!, userId: item.userId!, order: item.order!, status: item.status!, image: item.image!, dataTimeOrder: item.dataTimeOrder!, dateComplitionServ: item.dateComplitionServ!, dateApprovedOrders: item.dateApprovedOrders!, descriptionServ: item.descriptionServ!)
                 self.sortedArrayServices.append(serv)
                 self.sectionContent.append(serv)
