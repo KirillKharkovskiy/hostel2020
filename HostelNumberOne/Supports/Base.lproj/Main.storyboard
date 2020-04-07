@@ -2091,6 +2091,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mLW-ef-kyv"/>
                     </view>
+                    <navigationItem key="navigationItem" id="cuF-XA-oVc"/>
                     <connections>
                         <outlet property="tableView" destination="mfH-qn-nez" id="rkJ-RD-Jkg"/>
                     </connections>
@@ -2484,6 +2485,9 @@
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="15"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <state key="normal" title="Принудительное выселение "/>
+                                <connections>
+                                    <action selector="buttonEvicttionClient:" destination="aye-EQ-Mpd" eventType="touchUpInside" id="9dT-6S-seA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

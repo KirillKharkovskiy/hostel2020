@@ -31,10 +31,17 @@ class ComplitionAllClientViewController: UIViewController {
         buttonEvictionClient.clipsToBounds = true  // не забудь это, а то не закруглиться
         buttonEvictionClient.layer.cornerRadius = 8    /// радиус закругления закругление
         buttonEvictionClient.layer.borderWidth = 2.0   // толщина обводки
-        buttonEvictionClient.layer.borderColor = #colorLiteral(red: 1, green: 0.6210887085, blue: 0.9104183452, alpha: 1)
+        buttonEvictionClient.layer.borderColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
         buttonEvictionClient.clipsToBounds = true  // не забудь это, а то не закруглиться
     }
     
+    // MARK: - ActionButtonEvectionClient
+    @IBAction func buttonEvicttionClient(_ sender: Any) {
+        print("sorteeeedkey--------",sortedKey)
+        Database.database().reference().child("ApprovedOrders").child(String(sortedKey)).removeValue()
+        self.performSegue(withIdentifier: "cancel", sender: self)
+               tableView.reloadData()
+    }
     
 }
 
@@ -157,7 +164,7 @@ extension ComplitionAllClientViewController{
                     tableView.reloadData()
                 }
             }
-            sortedKey.append(itemProfile.dataTimeOrder!)
+            sortedKey.append(itemProfile.dateApprovedOrders!)
         }
     }
     
