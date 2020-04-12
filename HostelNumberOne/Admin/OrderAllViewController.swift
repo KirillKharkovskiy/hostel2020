@@ -43,8 +43,6 @@ class OrderAllViewController: UIViewController,UITableViewDataSource,UITableView
         approverOrderRoom()
         approveOrderServices()
         approverOrderProfile()
-        print("sortedKey_dictKey_dictKey------------",_dictKey)
-        print("sortedKeyNEWsortedKeysortedKey------------",sortedKey)
         Database.database().reference().child("Buscet").child(String(_dictKey)).removeValue() // удаление
         self.performSegue(withIdentifier: "cancel", sender: self)
         tableView.reloadData()

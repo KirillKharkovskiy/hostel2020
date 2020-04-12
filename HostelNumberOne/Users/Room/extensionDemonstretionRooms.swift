@@ -101,6 +101,8 @@ extension roomsDemostretionViewController{
     func roomArray(){
         titleRoomLabel.text = rooms.title
         priceRoomLabel.text = rooms.price
+        descriptionTextView.text = rooms.descriptionRoom
+        //descriptionLabel.text = rooms.descriptionRoom
     }
     func setupFirebase(){
         guard let currentUser = Auth.auth().currentUser else {return}

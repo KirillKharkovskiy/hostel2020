@@ -2,6 +2,8 @@ import UIKit
 import Firebase
 
 class NewOrderClientViewController: UIViewController {
+    @IBAction func unwindToThisOrderMain(segue: UIStoryboardSegue){ // объявление сегвея для возврата на этот вью
+     }
     @IBOutlet weak var tableView: UITableView!
     var rooms = [Rooms]()
     var services = [Servicess]()
@@ -10,8 +12,7 @@ class NewOrderClientViewController: UIViewController {
     var dictKey = [String]()
     var arrayRooms = [Rooms].self
     
-    @IBAction func unwindToThisOrderMain(segue: UIStoryboardSegue){ // объявление сегвея для возврата на этот вью
-    }
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +22,13 @@ class NewOrderClientViewController: UIViewController {
     func setupTableView(){
         tableView.tableFooterView = UIView(frame: CGRect.zero) // мметод что бы не прорисовывались лишнии ячейки
         tableView.reloadData()
+//        NotificationCenter.default.addObserver(forName: UIContentSizeCategory.didChangeNotification, object: .none, queue: OperationQueue.main) { [weak self] _ in
+//                  self?.tableView.reloadData()
+//              }
     }
     override func viewWillAppear(_ animated: Bool) { // включаем свайп
         super.viewWillAppear(true)
+        tableView.reloadData()
         observdata()
         tableView.reloadData()
     }

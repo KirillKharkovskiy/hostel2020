@@ -6,6 +6,7 @@ class userServicesDemonstrationViewController: UIViewController {
     @IBOutlet weak var textFieldDateOrder: UITextField!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var imageViewLabel: UIImageView!
+    @IBOutlet weak var descriptionTextView: UITextView!
     var user: Users!
     var datePicker: UIDatePicker?
     var serv = Servicess()
@@ -19,7 +20,6 @@ class userServicesDemonstrationViewController: UIViewController {
         image()
         
     }
-    
     
     // MARK: - DatrPicker Arrival
     func datePickerFunc(){
@@ -36,17 +36,17 @@ class userServicesDemonstrationViewController: UIViewController {
     }
     @objc func dataChangetArrival(dataPicker: UIDatePicker){
         let dataFormated = DateFormatter()
-        //dataFormated.dateFormat = "MM/dd/yyyy"
           dataFormated.dateFormat = "MM/dd - HH:mm"
         textFieldDateOrder.text = dataFormated.string(from: datePicker!.date)//minimumDate
         view.endEditing(true)
-        
     }
     
     // MARK: - ViewDidload
     func servicesArray(){
         titleServicesLabel.text = serv.title
         priceServicesLabel.text = serv.price
+        descriptionTextView.text = serv.descriptionServ
+        //descriptionLabel.text = serv.descriptionServ
     }
     func setupFirebase(){
         guard let currentUser = Auth.auth().currentUser else {return}
@@ -71,14 +71,7 @@ class userServicesDemonstrationViewController: UIViewController {
         }
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
+
     @IBAction func buttonAddBuscet(_ sender: Any) {
         if textFieldDateOrder.text!.isEmpty{
             showAlert(title: "Выберите дату", message: "")

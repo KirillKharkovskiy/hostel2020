@@ -38,6 +38,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         warnLabel.alpha = 0 // ошибка при загрузке не будет показываться те прозрачный
         button()
+        
     }
    // MARK: - designButton
     func button(){

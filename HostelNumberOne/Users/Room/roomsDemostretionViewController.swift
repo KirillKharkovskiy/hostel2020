@@ -5,6 +5,7 @@ class roomsDemostretionViewController: UIViewController {
     @IBOutlet weak var priceRoomLabel: UILabel!
     @IBOutlet weak var textFieldDateArrival: UITextField!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var textFieldDateDeparture: UITextField!
     @IBOutlet weak var imageViewLabel: UIImageView!
     var _rooms = [Rooms]()
