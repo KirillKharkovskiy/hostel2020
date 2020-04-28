@@ -11,6 +11,8 @@
 		381ABE5B238D6726007EFCE6 /* ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381ABE5A238D6726007EFCE6 /* ShowAlert.swift */; };
 		381ABE5D238D69BA007EFCE6 /* AddServicessAdminTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381ABE5C238D69BA007EFCE6 /* AddServicessAdminTableViewController.swift */; };
 		381ABE5F238D6A1A007EFCE6 /* ServicessUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381ABE5E238D6A1A007EFCE6 /* ServicessUserTableViewController.swift */; };
+		ED03EF552449C06E00C51749 /* RoomStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED03EF542449C06E00C51749 /* RoomStatusTableViewCell.swift */; };
+		ED03EF592449C29D00C51749 /* RoomStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED03EF582449C29D00C51749 /* RoomStatusViewController.swift */; };
 		ED08A6A824390FC40042F26B /* ComplitionOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED08A6A724390FC40042F26B /* ComplitionOrderTableViewCell.swift */; };
 		ED08A6AB2439CC1F0042F26B /* ComplitionAllClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED08A6AA2439CC1F0042F26B /* ComplitionAllClientViewController.swift */; };
 		ED08A6AD2439CC5D0042F26B /* ComlitionAllCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED08A6AC2439CC5D0042F26B /* ComlitionAllCellTableViewCell.swift */; };
@@ -30,7 +32,6 @@
 		ED5F586923A94C8E0003CE23 /* ProfileUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5F586823A94C8E0003CE23 /* ProfileUserTableViewCell.swift */; };
 		ED5F700D23F19A89002BD9FF /* orderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5F700C23F19A89002BD9FF /* orderViewCell.swift */; };
 		ED6992DC241AA38C00E3B5F5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED6992DB241AA38B00E3B5F5 /* GoogleService-Info.plist */; };
-		ED71E6042359BBA000AF6619 /* EmployeesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED71E6032359BBA000AF6619 /* EmployeesViewController.swift */; };
 		ED7DA84923732096006D669D /* BascetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7DA84823732096006D669D /* BascetTableViewCell.swift */; };
 		ED7E18CB239FCCE30032BFC3 /* OrderUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7E18CA239FCCE30032BFC3 /* OrderUserTableViewCell.swift */; };
 		EDAE791B236380F800CD81E3 /* ServicessAdminTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAE791A236380F800CD81E3 /* ServicessAdminTableViewController.swift */; };
@@ -46,6 +47,10 @@
 		EDED5EF72359F29B00264388 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDED5EF62359F29B00264388 /* User.swift */; };
 		EDED5EF9235A202200264388 /* Rooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDED5EF8235A202200264388 /* Rooms.swift */; };
 		EDED5EFD235A4B0700264388 /* RoomsUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDED5EFC235A4B0700264388 /* RoomsUserTableViewCell.swift */; };
+		EDF4E705245883060014F87B /* editProvileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF4E704245883060014F87B /* editProvileViewController.swift */; };
+		EDF4E707245883230014F87B /* editProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF4E706245883230014F87B /* editProfileTableViewCell.swift */; };
+		EDF4E70F2458A3AB0014F87B /* HistoryOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF4E70E2458A3AB0014F87B /* HistoryOrderViewController.swift */; };
+		EDF4E7112458A4670014F87B /* HistoryOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF4E7102458A4670014F87B /* HistoryOrderTableViewCell.swift */; };
 		EDF74F0A2438F43A005EBEAE /* MainClientAdminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF74F092438F43A005EBEAE /* MainClientAdminVC.swift */; };
 		EDF74F0E2438FFD7005EBEAE /* NewOrderClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF74F0D2438FFD7005EBEAE /* NewOrderClientViewController.swift */; };
 		EDF79540235B122C00B2D62D /* RoomsAdminTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF7953F235B122C00B2D62D /* RoomsAdminTableViewCell.swift */; };
@@ -59,6 +64,8 @@
 		591482C67BCE8234AA84CCF0 /* Pods-HostelNumberOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HostelNumberOne.release.xcconfig"; path = "Target Support Files/Pods-HostelNumberOne/Pods-HostelNumberOne.release.xcconfig"; sourceTree = "<group>"; };
 		629C05C0647209F9689D365D /* Pods_HostelNumberOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HostelNumberOne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DB5C4B0222F7EBA365D8330 /* Pods-HostelNumberOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HostelNumberOne.debug.xcconfig"; path = "Target Support Files/Pods-HostelNumberOne/Pods-HostelNumberOne.debug.xcconfig"; sourceTree = "<group>"; };
+		ED03EF542449C06E00C51749 /* RoomStatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomStatusTableViewCell.swift; sourceTree = "<group>"; };
+		ED03EF582449C29D00C51749 /* RoomStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoomStatusViewController.swift; path = "/Users/kirill/Downloads/hostelhostel-master/hostel2020/HostelNumberOne/Admin/ RoomStatus/RoomStatusViewController.swift"; sourceTree = "<absolute>"; };
 		ED08A6A724390FC40042F26B /* ComplitionOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplitionOrderTableViewCell.swift; sourceTree = "<group>"; };
 		ED08A6AA2439CC1F0042F26B /* ComplitionAllClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplitionAllClientViewController.swift; sourceTree = "<group>"; };
 		ED08A6AC2439CC5D0042F26B /* ComlitionAllCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComlitionAllCellTableViewCell.swift; sourceTree = "<group>"; };
@@ -80,7 +87,6 @@
 		ED5F586823A94C8E0003CE23 /* ProfileUserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileUserTableViewCell.swift; path = HostelNumberOne/Users/Profile/ProfileUserTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		ED5F700C23F19A89002BD9FF /* orderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = orderViewCell.swift; path = ../Supports/orderViewCell.swift; sourceTree = "<group>"; };
 		ED6992DB241AA38B00E3B5F5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
-		ED71E6032359BBA000AF6619 /* EmployeesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesViewController.swift; sourceTree = "<group>"; };
 		ED7DA84823732096006D669D /* BascetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BascetTableViewCell.swift; sourceTree = "<group>"; };
 		ED7E18CA239FCCE30032BFC3 /* OrderUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderUserTableViewCell.swift; sourceTree = "<group>"; };
 		EDAE791A236380F800CD81E3 /* ServicessAdminTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicessAdminTableViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +102,10 @@
 		EDED5EF62359F29B00264388 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EDED5EF8235A202200264388 /* Rooms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rooms.swift; sourceTree = "<group>"; };
 		EDED5EFC235A4B0700264388 /* RoomsUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsUserTableViewCell.swift; sourceTree = "<group>"; };
+		EDF4E704245883060014F87B /* editProvileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editProvileViewController.swift; sourceTree = "<group>"; };
+		EDF4E706245883230014F87B /* editProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editProfileTableViewCell.swift; sourceTree = "<group>"; };
+		EDF4E70E2458A3AB0014F87B /* HistoryOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryOrderViewController.swift; sourceTree = "<group>"; };
+		EDF4E7102458A4670014F87B /* HistoryOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryOrderTableViewCell.swift; sourceTree = "<group>"; };
 		EDF74F092438F43A005EBEAE /* MainClientAdminVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainClientAdminVC.swift; sourceTree = "<group>"; };
 		EDF74F0D2438FFD7005EBEAE /* NewOrderClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrderClientViewController.swift; sourceTree = "<group>"; };
 		EDF7953F235B122C00B2D62D /* RoomsAdminTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsAdminTableViewCell.swift; sourceTree = "<group>"; };
@@ -143,7 +153,7 @@
 		ED11BA752355DC340081EE31 = {
 			isa = PBXGroup;
 			children = (
-				EDDC931C23D9B860000AE4E3 /* Struct */,
+				EDDC931C23D9B860000AE4E3 /* model */,
 				ED43E6A223679ECA00D80C43 /* File.swift */,
 				EDD47D9323E3426E00A33EE3 /* Encodable.swift */,
 				381ABE5A238D6726007EFCE6 /* ShowAlert.swift */,
@@ -190,7 +200,7 @@
 		ED71E6052359BCCD00AF6619 /* Admin */ = {
 			isa = PBXGroup;
 			children = (
-				EDDC931B23D9B84A000AE4E3 /*  Employees */,
+				EDDC931B23D9B84A000AE4E3 /*  RoomStatus */,
 				EDDC931A23D9B7C8000AE4E3 /* Order */,
 				EDDC931823D9B790000AE4E3 /* Rooms */,
 				EDBC5FB9236064B100ACC7B8 /* services */,
@@ -269,6 +279,8 @@
 		EDDC931723D9B77C000AE4E3 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				EDF4E7092458A35B0014F87B /* historyOrder */,
+				EDF4E703245882E00014F87B /* editProfile */,
 				ED5F586623A94B5D0003CE23 /* ProfileUserTableViewController.swift */,
 				ED5F586823A94C8E0003CE23 /* ProfileUserTableViewCell.swift */,
 			);
@@ -295,15 +307,16 @@
 			name = Order;
 			sourceTree = "<group>";
 		};
-		EDDC931B23D9B84A000AE4E3 /*  Employees */ = {
+		EDDC931B23D9B84A000AE4E3 /*  RoomStatus */ = {
 			isa = PBXGroup;
 			children = (
-				ED71E6032359BBA000AF6619 /* EmployeesViewController.swift */,
+				ED03EF582449C29D00C51749 /* RoomStatusViewController.swift */,
+				ED03EF542449C06E00C51749 /* RoomStatusTableViewCell.swift */,
 			);
-			path = " Employees";
+			path = " RoomStatus";
 			sourceTree = "<group>";
 		};
-		EDDC931C23D9B860000AE4E3 /* Struct */ = {
+		EDDC931C23D9B860000AE4E3 /* model */ = {
 			isa = PBXGroup;
 			children = (
 				EDED5EF62359F29B00264388 /* User.swift */,
@@ -312,7 +325,7 @@
 				EDC9BA4B23832FE600EA6CEA /* BuscetStruct.swift */,
 				EDC9BA4D2383314800EA6CEA /* usersAndAdmin.swift */,
 			);
-			name = Struct;
+			name = model;
 			sourceTree = "<group>";
 		};
 		EDDC931D23D9B8C9000AE4E3 /* MainLoginAndRegistration */ = {
@@ -331,6 +344,24 @@
 				ED11BA812355DC350081EE31 /* AppDelegate.swift */,
 			);
 			path = Supports;
+			sourceTree = "<group>";
+		};
+		EDF4E703245882E00014F87B /* editProfile */ = {
+			isa = PBXGroup;
+			children = (
+				EDF4E704245883060014F87B /* editProvileViewController.swift */,
+				EDF4E706245883230014F87B /* editProfileTableViewCell.swift */,
+			);
+			name = editProfile;
+			sourceTree = "<group>";
+		};
+		EDF4E7092458A35B0014F87B /* historyOrder */ = {
+			isa = PBXGroup;
+			children = (
+				EDF4E70E2458A3AB0014F87B /* HistoryOrderViewController.swift */,
+				EDF4E7102458A4670014F87B /* HistoryOrderTableViewCell.swift */,
+			);
+			path = historyOrder;
 			sourceTree = "<group>";
 		};
 		EDF8629023F5B68E002B1D91 /* orderDatatime */ = {
@@ -468,6 +499,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED03EF552449C06E00C51749 /* RoomStatusTableViewCell.swift in Sources */,
 				381ABE5B238D6726007EFCE6 /* ShowAlert.swift in Sources */,
 				ED5F700D23F19A89002BD9FF /* orderViewCell.swift in Sources */,
 				ED3DA85F2372D07E0010673F /* BascetUserTableViewController.swift in Sources */,
@@ -476,6 +508,7 @@
 				ED5F586923A94C8E0003CE23 /* ProfileUserTableViewCell.swift in Sources */,
 				381ABE5D238D69BA007EFCE6 /* AddServicessAdminTableViewController.swift in Sources */,
 				EDD47D9223E3118400A33EE3 /* AddRoomsTableViewController.swift in Sources */,
+				ED03EF592449C29D00C51749 /* RoomStatusViewController.swift in Sources */,
 				ED451A912402A47A0029D7C8 /* extensionDemonstretionRooms.swift in Sources */,
 				EDD80CA723FC203B006B87D7 /* roomsDemostretionViewController.swift in Sources */,
 				ED2FC9F9235CE55400EF3DA2 /* STOPSTOPTableViewController.swift in Sources */,
@@ -484,21 +517,24 @@
 				EDAE791B236380F800CD81E3 /* ServicessAdminTableViewController.swift in Sources */,
 				EDF79540235B122C00B2D62D /* RoomsAdminTableViewCell.swift in Sources */,
 				ED43E6A323679ECA00D80C43 /* File.swift in Sources */,
+				EDF4E7112458A4670014F87B /* HistoryOrderTableViewCell.swift in Sources */,
 				ED38F7CE238B14B600840C88 /* RegistrationTableViewController.swift in Sources */,
+				EDF4E707245883230014F87B /* editProfileTableViewCell.swift in Sources */,
 				EDED5EF72359F29B00264388 /* User.swift in Sources */,
 				ED08A6A824390FC40042F26B /* ComplitionOrderTableViewCell.swift in Sources */,
+				EDF4E70F2458A3AB0014F87B /* HistoryOrderViewController.swift in Sources */,
 				381ABE5F238D6A1A007EFCE6 /* ServicessUserTableViewController.swift in Sources */,
 				EDED5EF9235A202200264388 /* Rooms.swift in Sources */,
 				EDF74F0A2438F43A005EBEAE /* MainClientAdminVC.swift in Sources */,
 				EDD47D9423E3426E00A33EE3 /* Encodable.swift in Sources */,
 				EDF74F0E2438FFD7005EBEAE /* NewOrderClientViewController.swift in Sources */,
 				ED5F586723A94B5D0003CE23 /* ProfileUserTableViewController.swift in Sources */,
-				ED71E6042359BBA000AF6619 /* EmployeesViewController.swift in Sources */,
 				EDBC5FB82360648200ACC7B8 /* ServicessAdminTableViewCell.swift in Sources */,
 				ED452091236082B8004EB338 /* ServicessUserTableViewCell.swift in Sources */,
 				EDED5EFD235A4B0700264388 /* RoomsUserTableViewCell.swift in Sources */,
 				EDC9BA4E2383314800EA6CEA /* usersAndAdmin.swift in Sources */,
 				ED08A6AD2439CC5D0042F26B /* ComlitionAllCellTableViewCell.swift in Sources */,
+				EDF4E705245883060014F87B /* editProvileViewController.swift in Sources */,
 				EDBC5FB623605F0C00ACC7B8 /* Servicess.swift in Sources */,
 				EDBC5FB2235FB06F00ACC7B8 /* RoomsAdminTableViewController.swift in Sources */,
 				EDD5C8C9241AD438003DCFB1 /* userServicesDemonstrationViewController.swift in Sources */,

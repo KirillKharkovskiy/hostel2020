@@ -38,7 +38,10 @@ class ComplitionAllClientViewController: UIViewController {
     @IBAction func buttonEvicttionClient(_ sender: Any) {
         Database.database().reference().child("ApprovedOrders").child(String(_dictKey)).removeValue()
         self.performSegue(withIdentifier: "cancel", sender: self)
-               tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+        
     }
     
 }
@@ -79,7 +82,7 @@ extension ComplitionAllClientViewController: UITableViewDataSource,UITableViewDe
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellRooms", for: indexPath) as! ComlitionAllCellTableViewCell
             let rooms = sortedArrayRooms[indexPath.row]
             cell.titleLabel.text = rooms.title
-            cell.priceLabel.text = rooms.price
+            cell.priceLabel.text = rooms.price! + " руб."
             cell.statusLabel.text = "\(rooms.dateArrival!)-\(rooms.dateDeparture!)"
             cell.imageViewLabel.contentMode = .scaleAspectFill
             cell.imageViewLabel.layer.cornerRadius = 20
@@ -100,8 +103,8 @@ extension ComplitionAllClientViewController: UITableViewDataSource,UITableViewDe
         }else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellServices", for: indexPath) as! ComlitionAllCellTableViewCell
             let services = sortedArrayServices[indexPath.row]
-            cell.titleLabel.text = services.title
-            cell.priceLabel.text = services.price
+            cell.titleLabel.text = services.title!
+            cell.priceLabel.text = services.price! + " руб."
             cell.statusLabel.text = services.dateComplitionServ
             cell.imageViewLabel.contentMode = .scaleAspectFill
             cell.imageViewLabel.layer.cornerRadius = 20

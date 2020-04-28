@@ -6,7 +6,7 @@ class AddRoomsTableViewController: UITableViewController {
     @IBOutlet weak var imageLabel: UIImageView!
     @IBOutlet weak var nameLabel: UITextField!
     @IBOutlet weak var priceLabel: UITextField!
-    @IBOutlet weak var descriptionLabel: UITextField!
+    @IBOutlet weak var descriptionRoomsLabel: UITextView!
     var ref:DatabaseReference?
     let imagePicker = UIImagePickerController()
     
@@ -18,7 +18,26 @@ class AddRoomsTableViewController: UITableViewController {
         setupTableView()
         setupFirebase()
         setupImageView()
+        setupTextView()
     }
+    func setupTextView(){
+          descriptionRoomsLabel.layer.cornerRadius = 10
+          descriptionRoomsLabel.layer.borderWidth = 1.2
+          descriptionRoomsLabel.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+          descriptionRoomsLabel.clipsToBounds = true
+          
+          nameLabel.layer.cornerRadius = 10
+          nameLabel.layer.borderWidth = 1.2
+          nameLabel.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+          nameLabel.clipsToBounds = true
+          
+          priceLabel.layer.cornerRadius = 10
+          priceLabel.layer.borderWidth = 1.2
+          priceLabel.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+          priceLabel.clipsToBounds = true
+          
+      }
+    
     func setupTableView(){
         tableView.tableFooterView = UIView(frame: CGRect.zero) // мметод что бы не прорисовывались лишнии ячейки
         priceLabel.keyboardType = .decimalPad //  цифровая клавиатура
@@ -61,8 +80,9 @@ extension AddRoomsTableViewController{
     func uploadImagee(){
         let imageName = NSUUID().uuidString
         if let imgData = self.imageLabel.image?.pngData() {
-            guard let name = nameLabel.text, let price = priceLabel.text,let desriptionRoom = descriptionLabel.text, name != "", price != "", desriptionRoom != "" else {
+            guard let name = nameLabel.text, let price = priceLabel.text,let desriptionRoom = descriptionRoomsLabel.text, name != "", price != "", desriptionRoom != "" else {
                 print("Form is not valid")
+                showAlert(title: "Введённые данные некорректны", message:"")
                 return
             }
             let storageRef = Storage.storage().reference().child("Rooms_images").child("\(imageName).png")

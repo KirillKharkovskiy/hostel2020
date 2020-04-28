@@ -1,7 +1,5 @@
-
 import UIKit
 import Firebase
-
 class OrderAllViewController: UIViewController,UITableViewDataSource,UITableViewDelegate{
     @IBOutlet weak var buttonTrue: UIButton!
     @IBOutlet weak var buttonFalse: UIButton!
@@ -106,18 +104,18 @@ class OrderAllViewController: UIViewController,UITableViewDataSource,UITableView
         if indexPath.section == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellProfile", for: indexPath) as! orderViewCell
             let profile = sortedProfile[indexPath.row]
-            cell.fullNameLabel.text = profile.fullName
-            cell.emailLabel.text = profile.email
-            cell.passportLabel.text = profile.passport
-            cell.phoneNumbelLabel.text = profile.phoneNumber
-            cell.passwordLabel.text = profile.password
-            cell.userIdLabel.text = profile.userId
+            cell.fullNameLabel.text = "Full name: " + profile.fullName!
+            cell.emailLabel.text = "Email: " + profile.email!
+            cell.passportLabel.text = "Passport: " + profile.passport!
+            cell.phoneNumbelLabel.text = "Telephone: " + profile.phoneNumber!
+            cell.passwordLabel.text = "Password: " + profile.password!
+            cell.userIdLabel.text = "UserId: " + profile.userId!
             return cell
         }else if indexPath.section == 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellRooms", for: indexPath) as! orderViewCell
             let rooms = sortedArrayRooms[indexPath.row]
-            cell.titleLabel.text = rooms.title
-            cell.priceLabel.text = rooms.price
+            cell.titleLabel.text = "Название: " + rooms.title!
+            cell.priceLabel.text = "Цена: " + rooms.price! + " руб."
             cell.statusLabel.text = "\(rooms.dateArrival!)-\(rooms.dateDeparture!)"
             cell.imageViewLabel.contentMode = .scaleAspectFill
             cell.imageViewLabel.layer.cornerRadius = 20
@@ -138,8 +136,8 @@ class OrderAllViewController: UIViewController,UITableViewDataSource,UITableView
         }else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellServices", for: indexPath) as! orderViewCell
             let services = sortedArrayServices[indexPath.row]
-            cell.titleLabel.text = services.title
-            cell.priceLabel.text = services.price
+            cell.titleLabel.text = services.title!
+            cell.priceLabel.text = services.price! + " руб."
             cell.statusLabel.text = services.dateComplitionServ
             cell.imageViewLabel.contentMode = .scaleAspectFill
             cell.imageViewLabel.layer.cornerRadius = 20

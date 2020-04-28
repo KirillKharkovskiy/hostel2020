@@ -66,8 +66,8 @@ extension RoomsUserTableViewController{
         let _rooms = rooms[indexPath.row]
         cell.titleLabel.text = _rooms.title
         cell.priceLabel.text = _rooms.price
-        cell.imageViewLabel.contentMode = .scaleAspectFill
         cell.accessoryType = .disclosureIndicator
+        cell.imageViewLabel.contentMode = .scaleAspectFill
         cell.imageViewLabel.layer.cornerRadius = 20
         cell.imageViewLabel.clipsToBounds = true
         if let imageLogo = _rooms.image{

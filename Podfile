@@ -6,6 +6,7 @@ target 'HostelNumberOne' do
   use_frameworks!
 
   # Pods for HostelNumberOne
+  pod 'RSKPlaceholderTextView'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'

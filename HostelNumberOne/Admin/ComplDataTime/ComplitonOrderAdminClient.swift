@@ -27,7 +27,10 @@ class ComplitonOrderAdminClient: UIViewController {
     override func viewWillAppear(_ animated: Bool) { // включаем свайп
         super.viewWillAppear(true)
         observdata()
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+        
     }
 }
 

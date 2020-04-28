@@ -11,11 +11,16 @@ class MainClientAdminVC: UIViewController {
     }
     @IBAction func segmentController(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
-            newOrderView.alpha = 1
-            acceptedOrder.alpha = 0
+            acceptedOrder.isHidden = true
+            newOrderView.isHidden = false
+          //  acceptedOrder.alpha = 1
+            //newOrderView.alpha = 0
         }else{
-            newOrderView.alpha = 0
-            acceptedOrder.alpha = 1
+            newOrderView.isHidden = true
+            acceptedOrder.isHidden = false
+//            acceptedOrder.alpha = 0
+//            newOrderView.alpha = 1
+
         }
     }
 }

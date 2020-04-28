@@ -15,7 +15,6 @@ class BascetUserTableViewController: UITableViewController {
         tableView.reloadData()
         setupFirebase()
     }
-    
    
     func setupFirebase(){
         guard let currentUser = Auth.auth().currentUser else {return}

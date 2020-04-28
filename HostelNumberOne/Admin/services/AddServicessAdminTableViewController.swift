@@ -1,15 +1,13 @@
 import UIKit
 import Firebase
 import FirebaseStorage
-
 class AddServicessAdminTableViewController: UITableViewController {
     @IBOutlet weak var imageViewLogo: UIImageView!
     @IBOutlet weak var nameServicessLabel: UITextField!
-    @IBOutlet weak var descriptionServicessLabel: UITextField!
+    @IBOutlet weak var descriptionServiceLabel: UITextView!
     @IBOutlet weak var priceServicessLabel: UITextField!
     var ref:DatabaseReference?
     let imagePicker = UIImagePickerController()
-    
     @IBAction func saveNewServicess(_ sender: UIBarButtonItem) {
         uploadImagee()
     }
@@ -18,6 +16,24 @@ class AddServicessAdminTableViewController: UITableViewController {
         setupTableView()
         setupFirebase()
         setupImageView()
+        setupTextView()
+    }
+    func setupTextView(){
+        descriptionServiceLabel.layer.cornerRadius = 10
+        descriptionServiceLabel.layer.borderWidth = 1.2
+        descriptionServiceLabel.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        descriptionServiceLabel.clipsToBounds = true
+        
+        nameServicessLabel.layer.cornerRadius = 10
+        nameServicessLabel.layer.borderWidth = 1.2
+        nameServicessLabel.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        nameServicessLabel.clipsToBounds = true
+        
+        priceServicessLabel.layer.cornerRadius = 10
+        priceServicessLabel.layer.borderWidth = 1.2
+        priceServicessLabel.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        priceServicessLabel.clipsToBounds = true
+        
     }
     func setupTableView(){
         tableView.tableFooterView = UIView(frame: CGRect.zero) // мметод что бы не прорисовывались лишнии ячейки
@@ -61,8 +77,8 @@ extension AddServicessAdminTableViewController{
     func uploadImagee(){
         let imageName = NSUUID().uuidString
         if let imgData = self.imageViewLogo.image?.pngData() {
-            guard let name = nameServicessLabel.text, let price = priceServicessLabel.text, let descriptionServ = descriptionServicessLabel.text , name != "", price != "", descriptionServ != "" else {
-                print("Form is not valid")
+            guard let name = nameServicessLabel.text, let price = priceServicessLabel.text, let descriptionServ = descriptionServiceLabel.text , name != "", price != "", descriptionServ != "" else {
+                showAlert(title: "Введённые данные некорректны", message:"")
                 return
             }
            let storageRef = Storage.storage().reference().child("services_images").child("\(imageName).png")
