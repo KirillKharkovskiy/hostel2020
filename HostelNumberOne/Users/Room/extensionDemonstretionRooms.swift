@@ -102,6 +102,8 @@ extension roomsDemostretionViewController{
         titleRoomLabel.text = rooms.title
         priceRoomLabel.text = rooms.price
         descriptionTextView.text = rooms.descriptionRoom
+        descriptionTextView.isEditable = false 
+
         //descriptionLabel.text = rooms.descriptionRoom
     }
     func setupFirebase(){

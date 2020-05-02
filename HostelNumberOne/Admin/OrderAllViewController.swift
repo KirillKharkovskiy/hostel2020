@@ -114,8 +114,8 @@ class OrderAllViewController: UIViewController,UITableViewDataSource,UITableView
         }else if indexPath.section == 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellRooms", for: indexPath) as! orderViewCell
             let rooms = sortedArrayRooms[indexPath.row]
-            cell.titleLabel.text = "Название: " + rooms.title!
-            cell.priceLabel.text = "Цена: " + rooms.price! + " руб."
+            cell.titleLabel.text = rooms.title
+            cell.priceLabel.text = rooms.price! + " руб."
             cell.statusLabel.text = "\(rooms.dateArrival!)-\(rooms.dateDeparture!)"
             cell.imageViewLabel.contentMode = .scaleAspectFill
             cell.imageViewLabel.layer.cornerRadius = 20

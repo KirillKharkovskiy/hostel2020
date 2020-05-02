@@ -46,7 +46,7 @@ class userServicesDemonstrationViewController: UIViewController {
         titleServicesLabel.text = serv.title
         priceServicesLabel.text = serv.price
         descriptionTextView.text = serv.descriptionServ
-        //descriptionLabel.text = serv.descriptionServ
+        descriptionTextView.isEditable = false
     }
     func setupFirebase(){
         guard let currentUser = Auth.auth().currentUser else {return}

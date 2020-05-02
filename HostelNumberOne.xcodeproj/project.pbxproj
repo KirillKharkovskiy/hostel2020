@@ -31,6 +31,7 @@
 		ED5F586723A94B5D0003CE23 /* ProfileUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5F586623A94B5D0003CE23 /* ProfileUserTableViewController.swift */; };
 		ED5F586923A94C8E0003CE23 /* ProfileUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5F586823A94C8E0003CE23 /* ProfileUserTableViewCell.swift */; };
 		ED5F700D23F19A89002BD9FF /* orderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5F700C23F19A89002BD9FF /* orderViewCell.swift */; };
+		ED68DEDC245D8FF200393CB5 /* editprofile2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED68DEDB245D8FF200393CB5 /* editprofile2TableViewController.swift */; };
 		ED6992DC241AA38C00E3B5F5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED6992DB241AA38B00E3B5F5 /* GoogleService-Info.plist */; };
 		ED7DA84923732096006D669D /* BascetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7DA84823732096006D669D /* BascetTableViewCell.swift */; };
 		ED7E18CB239FCCE30032BFC3 /* OrderUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7E18CA239FCCE30032BFC3 /* OrderUserTableViewCell.swift */; };
@@ -48,7 +49,6 @@
 		EDED5EF9235A202200264388 /* Rooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDED5EF8235A202200264388 /* Rooms.swift */; };
 		EDED5EFD235A4B0700264388 /* RoomsUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDED5EFC235A4B0700264388 /* RoomsUserTableViewCell.swift */; };
 		EDF4E705245883060014F87B /* editProvileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF4E704245883060014F87B /* editProvileViewController.swift */; };
-		EDF4E707245883230014F87B /* editProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF4E706245883230014F87B /* editProfileTableViewCell.swift */; };
 		EDF4E70F2458A3AB0014F87B /* HistoryOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF4E70E2458A3AB0014F87B /* HistoryOrderViewController.swift */; };
 		EDF4E7112458A4670014F87B /* HistoryOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF4E7102458A4670014F87B /* HistoryOrderTableViewCell.swift */; };
 		EDF74F0A2438F43A005EBEAE /* MainClientAdminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF74F092438F43A005EBEAE /* MainClientAdminVC.swift */; };
@@ -86,6 +86,7 @@
 		ED5F586623A94B5D0003CE23 /* ProfileUserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileUserTableViewController.swift; path = HostelNumberOne/Users/Profile/ProfileUserTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		ED5F586823A94C8E0003CE23 /* ProfileUserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileUserTableViewCell.swift; path = HostelNumberOne/Users/Profile/ProfileUserTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		ED5F700C23F19A89002BD9FF /* orderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = orderViewCell.swift; path = ../Supports/orderViewCell.swift; sourceTree = "<group>"; };
+		ED68DEDB245D8FF200393CB5 /* editprofile2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editprofile2TableViewController.swift; sourceTree = "<group>"; };
 		ED6992DB241AA38B00E3B5F5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		ED7DA84823732096006D669D /* BascetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BascetTableViewCell.swift; sourceTree = "<group>"; };
 		ED7E18CA239FCCE30032BFC3 /* OrderUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderUserTableViewCell.swift; sourceTree = "<group>"; };
@@ -103,7 +104,6 @@
 		EDED5EF8235A202200264388 /* Rooms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rooms.swift; sourceTree = "<group>"; };
 		EDED5EFC235A4B0700264388 /* RoomsUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsUserTableViewCell.swift; sourceTree = "<group>"; };
 		EDF4E704245883060014F87B /* editProvileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editProvileViewController.swift; sourceTree = "<group>"; };
-		EDF4E706245883230014F87B /* editProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editProfileTableViewCell.swift; sourceTree = "<group>"; };
 		EDF4E70E2458A3AB0014F87B /* HistoryOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryOrderViewController.swift; sourceTree = "<group>"; };
 		EDF4E7102458A4670014F87B /* HistoryOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryOrderTableViewCell.swift; sourceTree = "<group>"; };
 		EDF74F092438F43A005EBEAE /* MainClientAdminVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainClientAdminVC.swift; sourceTree = "<group>"; };
@@ -350,7 +350,7 @@
 			isa = PBXGroup;
 			children = (
 				EDF4E704245883060014F87B /* editProvileViewController.swift */,
-				EDF4E706245883230014F87B /* editProfileTableViewCell.swift */,
+				ED68DEDB245D8FF200393CB5 /* editprofile2TableViewController.swift */,
 			);
 			name = editProfile;
 			sourceTree = "<group>";
@@ -503,6 +503,7 @@
 				381ABE5B238D6726007EFCE6 /* ShowAlert.swift in Sources */,
 				ED5F700D23F19A89002BD9FF /* orderViewCell.swift in Sources */,
 				ED3DA85F2372D07E0010673F /* BascetUserTableViewController.swift in Sources */,
+				ED68DEDC245D8FF200393CB5 /* editprofile2TableViewController.swift in Sources */,
 				EDF8629323F5B76C002B1D91 /* OrderAllViewController.swift in Sources */,
 				ED08A6AB2439CC1F0042F26B /* ComplitionAllClientViewController.swift in Sources */,
 				ED5F586923A94C8E0003CE23 /* ProfileUserTableViewCell.swift in Sources */,
@@ -519,7 +520,6 @@
 				ED43E6A323679ECA00D80C43 /* File.swift in Sources */,
 				EDF4E7112458A4670014F87B /* HistoryOrderTableViewCell.swift in Sources */,
 				ED38F7CE238B14B600840C88 /* RegistrationTableViewController.swift in Sources */,
-				EDF4E707245883230014F87B /* editProfileTableViewCell.swift in Sources */,
 				EDED5EF72359F29B00264388 /* User.swift in Sources */,
 				ED08A6A824390FC40042F26B /* ComplitionOrderTableViewCell.swift in Sources */,
 				EDF4E70F2458A3AB0014F87B /* HistoryOrderViewController.swift in Sources */,

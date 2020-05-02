@@ -68,9 +68,9 @@ class BascetUserTableViewController: UITableViewController {
 
     //  MARK: - Order
     @IBAction func toOrder(_ sender: UIBarButtonItem) {
-        if rooms.isEmpty && serv.isEmpty {
-            self.showAlert(title: "Ваша корзина пуста", message:"")
-        }else{
+        if rooms.isEmpty || serv.isEmpty {
+            self.showAlert(title: "Недостаточно элементов", message:"Если вы добавили только номер, то необходимо выбрать услугу")
+        }else {
         orderBuscet()
         self.showAlert(title:"Заказ успешно выполнен", message: "В скором времени с вами свяжется администратор")
         
@@ -156,10 +156,6 @@ extension BascetUserTableViewController {
             let _serv = serv[indexPath.row]
             
             
-//            if let customView = Bundle.main.loadNibNamed("QuantityView", owner: self, options: nil)?.first as? QuantityView {
-//                return customView
-//            }
-             
             cell.titleLabel.text = _serv.title
             cell.priceLabel.text = _serv.price
             cell.imageLogo.contentMode = .scaleAspectFill
