@@ -2,7 +2,7 @@ import UIKit
 import Firebase
 
 class BascetUserTableViewController: UITableViewController {
-   
+    
     var user: Users!
     var rooms = [Rooms]()
     var serv = [Servicess]()
@@ -15,7 +15,7 @@ class BascetUserTableViewController: UITableViewController {
         tableView.reloadData()
         setupFirebase()
     }
-   
+    
     func setupFirebase(){
         guard let currentUser = Auth.auth().currentUser else {return}
         user = Users(user: currentUser )
@@ -65,16 +65,16 @@ class BascetUserTableViewController: UITableViewController {
         })
     }
     
-
+    
     //  MARK: - Order
     @IBAction func toOrder(_ sender: UIBarButtonItem) {
         if rooms.isEmpty || serv.isEmpty {
             self.showAlert(title: "Недостаточно элементов", message:"Если вы добавили только номер, то необходимо выбрать услугу")
         }else {
-        orderBuscet()
-        self.showAlert(title:"Заказ успешно выполнен", message: "В скором времени с вами свяжется администратор")
-        
-         Database.database().reference(withPath:"users").child(user.uid!).child("Buscet").removeValue()
+            orderBuscet()
+            self.showAlert(title:"Заказ успешно выполнен", message: "В скором времени с вами свяжется администратор")
+            
+            Database.database().reference(withPath:"users").child(user.uid!).child("Buscet").removeValue()
         }
     }
     
@@ -134,7 +134,7 @@ extension BascetUserTableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! BascetTableViewCell
             let _rooms = rooms[indexPath.row]
             cell.titleLabel.text = _rooms.title
-            cell.priceLabel.text = _rooms.price
+            cell.priceLabel.text = _rooms.price! + " руб"
             cell.imageLogo.contentMode = .scaleAspectFill
             cell.imageLogo.layer.cornerRadius = 20
             cell.imageLogo.clipsToBounds = true
@@ -148,7 +148,7 @@ extension BascetUserTableViewController {
                     DispatchQueue.main.async {
                         cell.imageLogo?.image = UIImage(data: data!)
                     }
-                    }.resume()
+                }.resume()
             }
             return cell
         } else { // other section (second)
@@ -157,7 +157,7 @@ extension BascetUserTableViewController {
             
             
             cell.titleLabel.text = _serv.title
-            cell.priceLabel.text = _serv.price
+            cell.priceLabel.text = _serv.price! + " руб"
             cell.imageLogo.contentMode = .scaleAspectFill
             cell.imageLogo.layer.cornerRadius = 20
             cell.imageLogo.clipsToBounds = true
@@ -172,12 +172,35 @@ extension BascetUserTableViewController {
                     DispatchQueue.main.async {
                         cell.imageLogo?.image = UIImage(data: data!)
                     }
-                    }.resume()
+                }.resume()
             }
             return cell
             //сделать через case
         }
     }
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        
+        let deleteAction = UITableViewRowAction(style: .default, title: "Удалить"){_,_ in
+            if indexPath.section == 0 {
+                let listRoom = self.rooms[indexPath.row].title
+                let refRooms = Database.database().reference(withPath: "users").child(self.user.uid!).child("Buscet").child("Rooms")
+                refRooms.child(listRoom!).removeValue()
+                print ("сработала эта секция номера")
+            }else {
+                let listServ = self.serv[indexPath.row].title!
+                let refServicesBuscet = Database.database().reference(withPath:"users").child(self.user.uid!).child("Buscet").child("Services")
+                refServicesBuscet.child(listServ).removeValue()
+                print(listServ)
+                print ("сработала эта секция услуги")
+            }
+            DispatchQueue.main.async {
+                tableView.reloadData()
+            }
+        }
+        return [deleteAction]
+    }
+    
     func datatime()->String{
         let now = Date()
         let formatter = DateFormatter()

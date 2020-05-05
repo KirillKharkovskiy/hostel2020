@@ -56,7 +56,7 @@ extension RoomsAdminTableViewController{
         let _rooms = rooms[indexPath.row]
         cell.titleLabel.text = _rooms.title
         cell.priceLabel.text = _rooms.price
-         cell.imageViewLabel.contentMode = .scaleAspectFill
+        cell.imageViewLabel.contentMode = .scaleAspectFill
         cell.imageViewLabel.layer.cornerRadius = 20
         cell.imageViewLabel.clipsToBounds = true
         if let imageLogo = _rooms.image{
@@ -69,9 +69,20 @@ extension RoomsAdminTableViewController{
                 DispatchQueue.main.async {
                     cell.imageViewLabel?.image = UIImage(data: data!)
                 }
-                }.resume()
+            }.resume()
         }
         return cell
     }
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let listToBeDeleted = self.rooms[indexPath.row].title!
+        let deleteAction = UITableViewRowAction(style: .default, title: "Удалить"){_,_ in
+            self.ref?.child(listToBeDeleted).removeValue()
+            DispatchQueue.main.async {
+                tableView.reloadData()
+            }
+        }
+        return [deleteAction]
+    }
 }
+
 

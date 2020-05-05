@@ -65,7 +65,7 @@ extension RoomsUserTableViewController{
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RoomsUserTableViewCell
         let _rooms = rooms[indexPath.row]
         cell.titleLabel.text = _rooms.title
-        cell.priceLabel.text = _rooms.price
+        cell.priceLabel.text = _rooms.price! + " руб"
         cell.accessoryType = .disclosureIndicator
         cell.imageViewLabel.contentMode = .scaleAspectFill
         cell.imageViewLabel.layer.cornerRadius = 20

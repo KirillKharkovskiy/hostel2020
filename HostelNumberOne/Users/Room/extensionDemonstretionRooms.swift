@@ -100,11 +100,16 @@ extension roomsDemostretionViewController{
     // MARK: - ViewDidload
     func roomArray(){
         titleRoomLabel.text = rooms.title
-        priceRoomLabel.text = rooms.price
+        priceRoomLabel.text = rooms.price! + " руб"
         descriptionTextView.text = rooms.descriptionRoom
         descriptionTextView.isEditable = false 
 
-        //descriptionLabel.text = rooms.descriptionRoom
+    }
+    func setupDescription(){
+        descriptionTextView.layer.cornerRadius = 10
+        descriptionTextView.layer.borderWidth = 1.2
+        descriptionTextView.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        descriptionTextView.clipsToBounds = true
     }
     func setupFirebase(){
         guard let currentUser = Auth.auth().currentUser else {return}
@@ -124,6 +129,8 @@ extension roomsDemostretionViewController{
                 }
                 DispatchQueue.main.async {
                     self.imageViewLabel?.image = UIImage(data: data!)
+                    self.imageViewLabel.layer.cornerRadius = 20
+                    self.imageViewLabel.clipsToBounds = true
                 }
                 }.resume()
         }

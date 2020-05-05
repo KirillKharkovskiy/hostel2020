@@ -79,6 +79,16 @@ extension ServicessAdminTableViewController{
         }
         return cell
     }
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let listToBeDeleted = self.servicess[indexPath.row].title!
+        let deleteAction = UITableViewRowAction(style: .default, title: "Удалить"){_,_ in
+            self.ref?.child(listToBeDeleted).removeValue()
+            DispatchQueue.main.async {
+                tableView.reloadData()
+            }
+        }
+        return [deleteAction]
+    }
 }
 
 

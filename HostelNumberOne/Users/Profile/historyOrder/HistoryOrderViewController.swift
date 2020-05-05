@@ -6,7 +6,7 @@ class HistoryOrderViewController: UIViewController {
     var arrayRooms = [Rooms]()
     var arrayService = [Servicess]()
      var user: Users!
-     let sectionHeaders = ["Room","Services"]
+     let sectionHeaders = ["Номера","Услуги"]
     var sectionContent = [[Rooms]().self,[Servicess]().self] as [Any]
     override func viewDidLoad() {
         super.viewDidLoad()

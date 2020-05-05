@@ -55,7 +55,7 @@ extension ServicessUserTableViewController{
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ServicessUserTableViewCell
         let _services = servic[indexPath.row]
         cell.titleTextLabel.text = _services.title
-        cell.priceTextLabel.text =  _services.price
+        cell.priceTextLabel.text =  _services.price! + " руб"
         cell.accessoryType = .disclosureIndicator
         cell.imageLabel.contentMode = .scaleAspectFill
         cell.imageLabel.layer.cornerRadius = 20

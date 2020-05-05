@@ -1,6 +1,7 @@
 import UIKit
 import Firebase
-class OrderAllViewController: UIViewController,UITableViewDataSource,UITableViewDelegate{
+import MessageUI
+class OrderAllViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,MFMailComposeViewControllerDelegate{
     @IBOutlet weak var buttonTrue: UIButton!
     @IBOutlet weak var buttonFalse: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -14,6 +15,7 @@ class OrderAllViewController: UIViewController,UITableViewDataSource,UITableView
     let sectionHeaders = [" Profile ","Room","Services"] // Заголовки
     var sectionContent = [[userAndAdmin]().self,[Rooms]().self,[Servicess]().self] as [Any]
     var sortedKey: String = ""
+    var email = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,15 +40,34 @@ class OrderAllViewController: UIViewController,UITableViewDataSource,UITableView
     
     // MARK: - Button Order true
     @IBAction func buttonOrderTrue(_ sender: Any) {
-        approverOrderRoom()
-        approveOrderServices()
-        approverOrderProfile()
-        Database.database().reference().child("Buscet").child(String(_dictKey)).removeValue() // удаление
-        self.performSegue(withIdentifier: "cancel", sender: self)
-        tableView.reloadData()
+       // approverOrderRoom()
+       // approveOrderServices()
+     //   approverOrderProfile()
+      //  Database.database().reference().child("Buscet").child(String(_dictKey)).removeValue() // удаление
+        //self.performSegue(withIdentifier: "cancel", sender: self)
+       // tableView.reloadData()
+        
+        let composer = MFMailComposeViewController()
+
+        if MFMailComposeViewController.canSendMail() {
+             composer.mailComposeDelegate = self
+            composer.setToRecipients([email])
+             composer.setSubject("Test Mail")
+             composer.setMessageBody("Text Body", isHTML: false)
+             present(composer, animated: true, completion: nil)
+        }
+        if !MFMailComposeViewController.canSendMail() {
+            print("Mail services are not available")
+            return
+        }
+        
         
         // создание Push-уведомления
     }
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+         dismiss(animated: true, completion: nil)
+     }
+    
     
     func approverOrderRoom(){
         let ref = Database.database().reference().child("ApprovedOrders").child(datatime()).child("Rooms")
@@ -158,7 +179,7 @@ class OrderAllViewController: UIViewController,UITableViewDataSource,UITableView
         }
     }
 }
-// MARK: - sorted Rooms and Services
+// MARK: - sorted Rooms and Services ,Profile
 extension OrderAllViewController{
     func sortedRooms(){
         for item in _rooms{
@@ -189,6 +210,7 @@ extension OrderAllViewController{
                     let prof = userAndAdmin(email: itemProfile.email!, fullName: itemProfile.fullName!, isAdmin: itemProfile.isAdmin!, passport: itemProfile.passport!, password: itemProfile.password!, userId: itemProfile.userId!, phoneNumber: itemProfile.phoneNumber!, dataTimeOrder: itemProfile.dataTimeOrder!, dateApprovedOrders: itemProfile.dateApprovedOrders!)
                     self.sortedProfile.append(prof)
                     self.sectionContent.append(prof)
+                    email.append(contentsOf: prof.email!)
                     
                     tableView.reloadData()
                 }
