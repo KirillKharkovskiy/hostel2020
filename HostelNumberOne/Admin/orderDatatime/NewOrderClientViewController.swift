@@ -1,7 +1,7 @@
 import UIKit
 import Firebase
 
-class NewOrderClientViewController: UIViewController {
+class NewOrderClientViewController: UIViewController,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource {
     @IBAction func unwindToThisOrderMain(segue: UIStoryboardSegue){ // объявление сегвея для возврата на этот вью
      }
     @IBOutlet weak var tableView: UITableView!
@@ -17,8 +17,14 @@ class NewOrderClientViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        
+        setupView()
     }
+    func setupView(){
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
+        tableView.tableFooterView = UIView()
+    }
+    
     func setupTableView(){
         tableView.tableFooterView = UIView(frame: CGRect.zero) // мметод что бы не прорисовывались лишнии ячейки
         DispatchQueue.main.async {
@@ -144,5 +150,26 @@ extension NewOrderClientViewController{
     }
 }
 
+// MARK:- DZNEmptyDataSet
+extension NewOrderClientViewController{
 
 
+
+func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+    let str = "Новых заказов пока нет"
+    let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .headline)]
+    return NSAttributedString(string: str, attributes: attrs)
+}
+
+func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+    let str = "Спустя время сделают заказ!"
+    let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body)]
+    return NSAttributedString(string: str, attributes: attrs)
+}
+
+func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
+    return UIImage(named: "profile")
+}
+
+    
+}

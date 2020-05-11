@@ -1,7 +1,7 @@
 import UIKit
 import Firebase
 
-class HistoryOrderViewController: UIViewController {
+class HistoryOrderViewController: UIViewController, DZNEmptyDataSetDelegate,DZNEmptyDataSetSource{
     @IBOutlet weak var tableView: UITableView!
     var arrayRooms = [Rooms]()
     var arrayService = [Servicess]()
@@ -13,7 +13,14 @@ class HistoryOrderViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         setupFirebase()
+        setupView()
     }
+    func setupView(){
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
+        tableView.tableFooterView = UIView()
+    }
+    
     func setupFirebase(){
            
            guard let currentUser = Auth.auth().currentUser else {return}
@@ -124,6 +131,31 @@ extension HistoryOrderViewController: UITableViewDelegate, UITableViewDataSource
             return cell
         }
     }
+}
+
+ // MARK:- DZNEmptyDataSet
+extension HistoryOrderViewController{
+   
     
+
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        let str = "История заказова пока пустая"
+        let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .headline)]
+        return NSAttributedString(string: str, attributes: attrs)
+    }
+
+    func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        let str = "Мы ждем ваш заказ"
+        let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body)]
+        return NSAttributedString(string: str, attributes: attrs)
+    }
+
+    func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
+        return UIImage(named: "bascet40px")
+    }
+
+        
+    
+
     
 }

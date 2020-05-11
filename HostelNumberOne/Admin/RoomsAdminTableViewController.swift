@@ -55,7 +55,7 @@ extension RoomsAdminTableViewController{
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RoomsAdminTableViewCell
         let _rooms = rooms[indexPath.row]
         cell.titleLabel.text = _rooms.title
-        cell.priceLabel.text = _rooms.price
+        cell.priceLabel.text = _rooms.price! + " руб"
         cell.imageViewLabel.contentMode = .scaleAspectFill
         cell.imageViewLabel.layer.cornerRadius = 20
         cell.imageViewLabel.clipsToBounds = true

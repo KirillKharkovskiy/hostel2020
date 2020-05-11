@@ -1,7 +1,7 @@
 import UIKit
 import Firebase
 
-class BascetUserTableViewController: UITableViewController {
+class BascetUserTableViewController: UITableViewController, DZNEmptyDataSetDelegate,DZNEmptyDataSetSource {
     
     var user: Users!
     var rooms = [Rooms]()
@@ -14,7 +14,14 @@ class BascetUserTableViewController: UITableViewController {
         tableView.tableFooterView = UIView(frame: CGRect.zero) // мметод что бы не прорисовывались лишнии ячейки
         tableView.reloadData()
         setupFirebase()
+        setupView()
     }
+    func setupView(){
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
+        tableView.tableFooterView = UIView()
+    }
+    
     
     func setupFirebase(){
         guard let currentUser = Auth.auth().currentUser else {return}
@@ -198,6 +205,7 @@ extension BascetUserTableViewController {
                 tableView.reloadData()
             }
         }
+        deleteAction.backgroundColor = #colorLiteral(red: 0.5791940689, green: 0.1280144453, blue: 0.5726861358, alpha: 1)
         return [deleteAction]
     }
     
@@ -209,4 +217,30 @@ extension BascetUserTableViewController {
         let dateString = formatter.string(from: now)
         return dateString
     }
+}
+
+
+
+// MARK:- DZNEmptyDataSet
+extension BascetUserTableViewController{
+
+
+
+func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+    let str = "В корзине пока пусто"
+    let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .headline)]
+    return NSAttributedString(string: str, attributes: attrs)
+}
+
+func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+    let str = "Корзина ждет, что ее наполнят!"
+    let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body)]
+    return NSAttributedString(string: str, attributes: attrs)
+}
+
+func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
+    return UIImage(named: "bascet40px")
+}
+
+    
 }

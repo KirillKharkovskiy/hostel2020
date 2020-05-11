@@ -1,7 +1,7 @@
 import UIKit
 import Firebase
 class roomsDemostretionViewController: UIViewController {
-    @IBOutlet weak var titleRoomLabel: UILabel!
+ //   @IBOutlet weak var titleRoomLabel: UILabel!
     @IBOutlet weak var priceRoomLabel: UILabel!
     @IBOutlet weak var textFieldDateArrival: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
@@ -36,6 +36,7 @@ class roomsDemostretionViewController: UIViewController {
         downloadDate()
         setupButton()
         setupDescription()
+        
     }
     
     // MARK: - OrderButton
@@ -86,9 +87,9 @@ class roomsDemostretionViewController: UIViewController {
         }
     }
     func setupButton(){
-        buscetButton.layer.cornerRadius = 10  /// радиус закругления закругление
+        buscetButton.layer.cornerRadius = 5  /// радиус закругления закругление
         buscetButton.layer.borderWidth = 1.0   // толщина обводки
-        buscetButton.layer.borderColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+        buscetButton.layer.borderColor = #colorLiteral(red: 0.5791940689, green: 0.1280144453, blue: 0.5726861358, alpha: 1)
         buscetButton.clipsToBounds = true  // не забудь это, а то не закруглиться
     }
 }

@@ -13,7 +13,7 @@ class ComplitionAllClientViewController: UIViewController {
     var sortedArrayServices = [Servicess]()
     let sectionHeaders = [" Profile ","Room","Services"] // Заголовки
     var sectionContent = [[userAndAdmin]().self,[Rooms]().self,[Servicess]().self] as [Any]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -21,7 +21,9 @@ class ComplitionAllClientViewController: UIViewController {
         sortedServic()
         sortedProfilefunc()
         button()
+        
     }
+    
     func setupTableView(){
         tableView.tableFooterView = UIView(frame: CGRect.zero) // мметод что бы не прорисовывались лишнии ячейки
     }
@@ -30,7 +32,7 @@ class ComplitionAllClientViewController: UIViewController {
         buttonEvictionClient.clipsToBounds = true  // не забудь это, а то не закруглиться
         buttonEvictionClient.layer.cornerRadius = 8    /// радиус закругления закругление
         buttonEvictionClient.layer.borderWidth = 2.0   // толщина обводки
-        buttonEvictionClient.layer.borderColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
+        buttonEvictionClient.layer.borderColor = #colorLiteral(red: 0.7372517472, green: 0.3826456109, blue: 0.795703428, alpha: 1)
         buttonEvictionClient.clipsToBounds = true  // не забудь это, а то не закруглиться
     }
     
@@ -163,7 +165,4 @@ extension ComplitionAllClientViewController{
             }
         }
     }
-    
-    
 }
-

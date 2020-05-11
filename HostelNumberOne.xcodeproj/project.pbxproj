@@ -27,6 +27,7 @@
 		ED43E6A323679ECA00D80C43 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED43E6A223679ECA00D80C43 /* File.swift */; };
 		ED451A912402A47A0029D7C8 /* extensionDemonstretionRooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED451A902402A47A0029D7C8 /* extensionDemonstretionRooms.swift */; };
 		ED452091236082B8004EB338 /* ServicessUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED452090236082B8004EB338 /* ServicessUserTableViewCell.swift */; };
+		ED4888D4246860A300189415 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4888D2246860A300189415 /* UIScrollView+EmptyDataSet.m */; };
 		ED4E227724352B55004F1CF1 /* ComplitonOrderAdminClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4E227624352B55004F1CF1 /* ComplitonOrderAdminClient.swift */; };
 		ED5F586723A94B5D0003CE23 /* ProfileUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5F586623A94B5D0003CE23 /* ProfileUserTableViewController.swift */; };
 		ED5F586923A94C8E0003CE23 /* ProfileUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5F586823A94C8E0003CE23 /* ProfileUserTableViewCell.swift */; };
@@ -82,6 +83,9 @@
 		ED43E6A223679ECA00D80C43 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		ED451A902402A47A0029D7C8 /* extensionDemonstretionRooms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionDemonstretionRooms.swift; sourceTree = "<group>"; };
 		ED452090236082B8004EB338 /* ServicessUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicessUserTableViewCell.swift; sourceTree = "<group>"; };
+		ED4888D1246860A200189415 /* HostelNumberOne-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HostelNumberOne-Bridging-Header.h"; sourceTree = "<group>"; };
+		ED4888D2246860A300189415 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+EmptyDataSet.m"; path = "../../../../DZNEmptyDataSet-master/Source/UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
+		ED4888D3246860A300189415 /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+EmptyDataSet.h"; path = "../../../../DZNEmptyDataSet-master/Source/UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
 		ED4E227624352B55004F1CF1 /* ComplitonOrderAdminClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplitonOrderAdminClient.swift; sourceTree = "<group>"; };
 		ED5F586623A94B5D0003CE23 /* ProfileUserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileUserTableViewController.swift; path = HostelNumberOne/Users/Profile/ProfileUserTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		ED5F586823A94C8E0003CE23 /* ProfileUserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileUserTableViewCell.swift; path = HostelNumberOne/Users/Profile/ProfileUserTableViewCell.swift; sourceTree = SOURCE_ROOT; };
@@ -340,8 +344,11 @@
 		EDED5EF52359F19C00264388 /* Supports */ = {
 			isa = PBXGroup;
 			children = (
+				ED4888D3246860A300189415 /* UIScrollView+EmptyDataSet.h */,
+				ED4888D2246860A300189415 /* UIScrollView+EmptyDataSet.m */,
 				ED11BA852355DC350081EE31 /* Main.storyboard */,
 				ED11BA812355DC350081EE31 /* AppDelegate.swift */,
+				ED4888D1246860A200189415 /* HostelNumberOne-Bridging-Header.h */,
 			);
 			path = Supports;
 			sourceTree = "<group>";
@@ -417,6 +424,7 @@
 				TargetAttributes = {
 					ED11BA7D2355DC350081EE31 = {
 						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1140;
 					};
 				};
 			};
@@ -521,6 +529,7 @@
 				EDF4E7112458A4670014F87B /* HistoryOrderTableViewCell.swift in Sources */,
 				ED38F7CE238B14B600840C88 /* RegistrationTableViewController.swift in Sources */,
 				EDED5EF72359F29B00264388 /* User.swift in Sources */,
+				ED4888D4246860A300189415 /* UIScrollView+EmptyDataSet.m in Sources */,
 				ED08A6A824390FC40042F26B /* ComplitionOrderTableViewCell.swift in Sources */,
 				EDF4E70F2458A3AB0014F87B /* HistoryOrderViewController.swift in Sources */,
 				381ABE5F238D6A1A007EFCE6 /* ServicessUserTableViewController.swift in Sources */,
@@ -688,6 +697,7 @@
 			baseConfigurationReference = 9DB5C4B0222F7EBA365D8330 /* Pods-HostelNumberOne.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TMSFZ429HL;
 				INFOPLIST_FILE = HostelNumberOne/Info.plist;
@@ -697,6 +707,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = kirill.HostelNumberOneeere;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HostelNumberOne/Supports/HostelNumberOne-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -707,6 +719,7 @@
 			baseConfigurationReference = 591482C67BCE8234AA84CCF0 /* Pods-HostelNumberOne.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TMSFZ429HL;
 				INFOPLIST_FILE = HostelNumberOne/Info.plist;
@@ -716,6 +729,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = kirill.HostelNumberOneeere;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HostelNumberOne/Supports/HostelNumberOne-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

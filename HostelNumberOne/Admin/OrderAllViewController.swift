@@ -40,34 +40,61 @@ class OrderAllViewController: UIViewController,UITableViewDataSource,UITableView
     
     // MARK: - Button Order true
     @IBAction func buttonOrderTrue(_ sender: Any) {
-       // approverOrderRoom()
-       // approveOrderServices()
-     //   approverOrderProfile()
-      //  Database.database().reference().child("Buscet").child(String(_dictKey)).removeValue() // удаление
-        //self.performSegue(withIdentifier: "cancel", sender: self)
-       // tableView.reloadData()
-        
+        approverOrderRoom()
+        approveOrderServices()
+        approverOrderProfile()
+        Database.database().reference().child("Buscet").child(String(_dictKey)).removeValue() // удаление
+        self.performSegue(withIdentifier: "cancel", sender: self)
+        tableView.reloadData()
+    
         let composer = MFMailComposeViewController()
-
         if MFMailComposeViewController.canSendMail() {
              composer.mailComposeDelegate = self
             composer.setToRecipients([email])
-             composer.setSubject("Test Mail")
-             composer.setMessageBody("Text Body", isHTML: false)
+             composer.setSubject("Гостиничный комплекс TreeHotel")
+             composer.setMessageBody("Ваш номер и услуги одобрены приятного проживания", isHTML: false)
              present(composer, animated: true, completion: nil)
         }
+        print(email)
         if !MFMailComposeViewController.canSendMail() {
             print("Mail services are not available")
             return
         }
-        
-        
-        // создание Push-уведомления
     }
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
          dismiss(animated: true, completion: nil)
      }
     
+    // MARK: - Button order false
+    
+    @IBAction func buttonFalseAction(_ sender: Any) {
+         Database.database().reference().child("Buscet").child(String(_dictKey)).removeValue() // удаление
+        self.performSegue(withIdentifier: "cancel", sender: self)
+              tableView.reloadData()
+          
+        let composer = MFMailComposeViewController()
+          if MFMailComposeViewController.canSendMail() {
+               composer.mailComposeDelegate = self
+              composer.setToRecipients([email])
+               composer.setSubject("Гостиничный комплекс TreeHotel")
+               composer.setMessageBody("Ваш номер и услуги одобрены приятного проживания", isHTML: false)
+               present(composer, animated: true, completion: nil)
+          }
+          print(email)
+          if !MFMailComposeViewController.canSendMail() {
+              print("Mail services are not available")
+              return
+          }
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    // MARK: - approverOrder
     
     func approverOrderRoom(){
         let ref = Database.database().reference().child("ApprovedOrders").child(datatime()).child("Rooms")
@@ -203,6 +230,7 @@ extension OrderAllViewController{
         }
     }
     func sortedProfilefunc(){
+        email.removeAll()
         for itemProfile in _profile{
             for itemRooms in sortedArrayRooms{
                 sortedKey.removeAll()

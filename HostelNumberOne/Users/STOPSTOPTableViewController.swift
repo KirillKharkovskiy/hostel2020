@@ -19,6 +19,11 @@ class RoomsUserTableViewController: UITableViewController {
         super.viewDidLoad()
         setupTableView()
         setupFirebase()
+        setupBackButton()
+    }
+    func setupBackButton(){
+        self.navigationItem.backBarButtonItem=UIBarButtonItem(title:"", style: .plain, target: nil, action: nil)//с кнопки назад убирает название
+        self.navigationItem.backBarButtonItem?.tintColor = #colorLiteral(red: 0.5791940689, green: 0.1280144453, blue: 0.5726861358, alpha: 1)
     }
     func setupTableView(){
         tableView.tableFooterView = UIView(frame: CGRect.zero) // мметод что бы не прорисовывались лишнии ячейки

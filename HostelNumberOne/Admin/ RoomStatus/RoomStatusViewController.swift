@@ -1,7 +1,7 @@
 import UIKit
 import Firebase
 
-class RoomStatusViewController: UIViewController {
+class RoomStatusViewController: UIViewController, DZNEmptyDataSetDelegate,DZNEmptyDataSetSource{
     @IBOutlet weak var tableView: UITableView!
     var rooms = [Rooms]()
     var services = [Servicess]()
@@ -13,7 +13,14 @@ class RoomStatusViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        setupView()
     }
+    func setupView(){
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
+        tableView.tableFooterView = UIView()
+    }
+    
     func setupTableView(){
         tableView.tableFooterView = UIView(frame: CGRect.zero) // мметод что бы не прорисовывались лишнии ячейки
         tableView.reloadData()
@@ -116,4 +123,28 @@ extension RoomStatusViewController{
             }
         })
     }
+}
+
+// MARK:- DZNEmptyDataSet
+extension RoomStatusViewController{
+
+
+
+func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+    let str = "Все номера свободны"
+    let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .headline)]
+    return NSAttributedString(string: str, attributes: attrs)
+}
+
+func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+    let str = "Пока вы не одобрите заказ, номер будет свободен"
+    let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body)]
+    return NSAttributedString(string: str, attributes: attrs)
+}
+
+func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
+    return UIImage(named: "roms35")
+}
+
+    
 }

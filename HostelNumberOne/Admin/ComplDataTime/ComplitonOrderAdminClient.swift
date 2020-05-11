@@ -1,6 +1,6 @@
 import UIKit
 import Firebase
-class ComplitonOrderAdminClient: UIViewController {
+class ComplitonOrderAdminClient: UIViewController, DZNEmptyDataSetDelegate,DZNEmptyDataSetSource {
     @IBOutlet weak var tableView: UITableView!
     var rooms = [Rooms]()
     var services = [Servicess]()
@@ -16,8 +16,15 @@ class ComplitonOrderAdminClient: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        
+        setupView()
     }
+    
+    func setupView(){
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
+        tableView.tableFooterView = UIView()
+    }
+    
     func setupTableView(){
         
         tableView.tableFooterView = UIView(frame: CGRect.zero) // мметод что бы не прорисовывались лишнии ячейки
@@ -134,4 +141,29 @@ extension ComplitonOrderAdminClient{
             }
         }
     }
+}
+
+
+// MARK:- DZNEmptyDataSet
+extension ComplitonOrderAdminClient{
+    
+    
+    
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        let str = "Принятых заказов пока нет"
+        let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .headline)]
+        return NSAttributedString(string: str, attributes: attrs)
+    }
+    
+    func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        let str = "Одобрите новый заказ для отображения!"
+        let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body)]
+        return NSAttributedString(string: str, attributes: attrs)
+    }
+    
+    func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
+        return UIImage(named: "profile")
+    }
+    
+    
 }

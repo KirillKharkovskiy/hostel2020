@@ -18,12 +18,12 @@ extension roomsDemostretionViewController{
                 if b == nil {
                     print("error")
                 }else{
-                
-                let theJSONData = try! JSONSerialization.data(
-                    withJSONObject: b!,
-                    options: [])
-                let decoder = JSONDecoder()
-                let decodedDict = try? decoder.decode( [String: Category].self, from: theJSONData)
+                    
+                    let theJSONData = try! JSONSerialization.data(
+                        withJSONObject: b!,
+                        options: [])
+                    let decoder = JSONDecoder()
+                    let decodedDict = try? decoder.decode( [String: Category].self, from: theJSONData)
                     if decodedDict?.values == nil {
                         print("error decodedDict == nil")
                     }else{
@@ -98,12 +98,14 @@ extension roomsDemostretionViewController{
     }
     
     // MARK: - ViewDidload
+    
+
     func roomArray(){
-        titleRoomLabel.text = rooms.title
+        //  titleRoomLabel.text = rooms.title
         priceRoomLabel.text = rooms.price! + " руб"
         descriptionTextView.text = rooms.descriptionRoom
         descriptionTextView.isEditable = false 
-
+        
     }
     func setupDescription(){
         descriptionTextView.layer.cornerRadius = 10
@@ -129,10 +131,10 @@ extension roomsDemostretionViewController{
                 }
                 DispatchQueue.main.async {
                     self.imageViewLabel?.image = UIImage(data: data!)
-                    self.imageViewLabel.layer.cornerRadius = 20
+                    self.imageViewLabel.layer.cornerRadius = 10
                     self.imageViewLabel.clipsToBounds = true
                 }
-                }.resume()
+            }.resume()
         }
     }
 }

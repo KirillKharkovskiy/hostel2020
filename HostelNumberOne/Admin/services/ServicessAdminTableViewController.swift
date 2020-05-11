@@ -61,7 +61,7 @@ extension ServicessAdminTableViewController{
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ServicessAdminTableViewCell
         let _services = servicess[indexPath.row]
         cell.titleTextLabel.text = _services.title
-        cell.priceTextLabel.text = _services.price
+        cell.priceTextLabel.text = _services.price! + " руб"
         cell.imageLabel.contentMode = .scaleAspectFill
         cell.imageLabel.layer.cornerRadius = 20
         cell.imageLabel.clipsToBounds = true
