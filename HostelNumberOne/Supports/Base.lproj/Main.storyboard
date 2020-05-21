@@ -1240,6 +1240,7 @@
                                     <segment title="Новые заказы"/>
                                     <segment title="Принятые заказы"/>
                                 </segments>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="selectedSegmentTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="segmentController:" destination="znC-fh-NG8" eventType="valueChanged" id="mjz-kb-TGs"/>
@@ -1510,7 +1511,7 @@
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cii-w8-0GP">
                                 <rect key="frame" x="20" y="574" width="176" height="42"/>
-                                <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.53210438321008491" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="176" id="NEr-3X-ZkP"/>
                                     <constraint firstAttribute="height" constant="42" id="WEO-Nt-mBl"/>
@@ -1614,7 +1615,6 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="H7m-7D-Ho8" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="s96-sE-2kU">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="108"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2103,7 +2103,6 @@
                     <tabBarItem key="tabBarItem" title="" image="person" catalog="system" id="CJM-ie-Fjp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="5EG-2H-djL">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -3064,7 +3063,6 @@
                     <tabBarItem key="tabBarItem" title="" image="person" catalog="system" id="Jl4-jm-AB4"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="7NP-W1-e4H">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

@@ -8,12 +8,15 @@ class editprofile2TableViewController: UITableViewController {
     @IBOutlet weak var telephoneTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     var name = String()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         setupFirebase()
-        
+        setupkeyboard()
+    }
+    func setupkeyboard(){
+        passportTextField.keyboardType = .asciiCapableNumberPad
+        telephoneTextField.keyboardType = .asciiCapableNumberPad
     }
     func setupFirebase(){
         guard let currentUser = Auth.auth().currentUser else {return}
@@ -58,3 +61,4 @@ class editprofile2TableViewController: UITableViewController {
         }
     }
 }
+

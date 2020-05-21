@@ -18,7 +18,13 @@ class RegistrationTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView(frame: CGRect.zero) // мметод что бы не прорисовывались лишнии ячейки
+        setupkeyboard()
         
+    }
+    func setupkeyboard(){
+        passportTextField.keyboardType = .asciiCapableNumberPad
+        emailTextField.keyboardType = .emailAddress
+        phoneNumberField.keyboardType = .asciiCapableNumberPad
     }
     
     @IBAction func registerTapped(_ sender: UIBarButtonItem) {
