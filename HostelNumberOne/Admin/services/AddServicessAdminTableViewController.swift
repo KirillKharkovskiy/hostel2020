@@ -8,9 +8,11 @@ class AddServicessAdminTableViewController: UITableViewController {
     @IBOutlet weak var priceServicessLabel: UITextField!
     var ref:DatabaseReference?
     let imagePicker = UIImagePickerController()
+    
     @IBAction func saveNewServicess(_ sender: UIBarButtonItem) {
         uploadImagee()
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -18,6 +20,61 @@ class AddServicessAdminTableViewController: UITableViewController {
         setupImageView()
         setupTextView()
     }
+}
+
+// MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate
+extension AddServicessAdminTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    func setypImagePicker(){
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.delegate = self
+            imagePicker.isEditing = true
+            imagePicker.allowsEditing = true //возможность редактировать изображение
+            
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[UIImagePickerController.InfoKey.editedImage] as! UIImage
+        imageViewLogo.image = image
+        self.dismiss(animated: true, completion: nil)
+    }
+}
+// MARK: - ImageFunc
+extension AddServicessAdminTableViewController{
+    func uploadImagee(){
+        let imageName = NSUUID().uuidString
+        if let imgData = self.imageViewLogo.image?.pngData() {
+            guard let name = nameServicessLabel.text, let price = priceServicessLabel.text, let descriptionServ = descriptionServiceLabel.text , name != "", price != "", descriptionServ != "" else {
+                showAlert(title: "Введённые данные некорректны", message:"")
+                return
+            }
+            let storageRef = Storage.storage().reference().child("services_images").child("\(imageName).png")
+            let metaData = StorageMetadata()
+            metaData.contentType = "image/png"
+            storageRef.putData(imgData, metadata: metaData) {(metadata, error) in
+                if error == nil {
+                    print("good")
+                    storageRef.downloadURL(completion: {[weak self] (url, error) in
+                        if error == nil {
+                            print("Good")
+                        }
+                        guard let url = url else { return }
+                        let serv = Servicess(title:name,price:price,userId:"userId",order:false,status:false,image: url.absoluteString, dataTimeOrder:"", dateComplitionServ:"", dateApprovedOrders:"", descriptionServ:descriptionServ)
+                        if let title = serv.title {
+                            let servRef = self?.ref?.child(title.lowercased())
+                            servRef?.setValue(serv.convertToDictionary())
+                            self!.performSegue(withIdentifier: "back", sender: self)
+                        }
+                    })
+                }
+            }
+        }
+    }
+}
+
+// MARK: - setupViewDidLoad
+extension AddServicessAdminTableViewController{
     func setupTextView(){
         descriptionServiceLabel.layer.cornerRadius = 10
         descriptionServiceLabel.layer.borderWidth = 1.2
@@ -49,58 +106,7 @@ class AddServicessAdminTableViewController: UITableViewController {
         imageViewLogo.addGestureRecognizer(tapGesture)
     }
     @objc func openGallery(tapGesture:UITapGestureRecognizer){
-        self.setypImagePicker()
-    }
+          self.setypImagePicker()
+      }
     
-}
-
-// MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate
-extension AddServicessAdminTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
-    func setypImagePicker(){
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
-            imagePicker.sourceType = .photoLibrary
-            imagePicker.delegate = self
-            imagePicker.isEditing = true
-            imagePicker.allowsEditing = true //возможность редактировать изображение
-            
-            self.present(imagePicker, animated: true, completion: nil)
-        }
-    }
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let image = info[UIImagePickerController.InfoKey.editedImage] as! UIImage
-        imageViewLogo.image = image
-        self.dismiss(animated: true, completion: nil)
-    }
-}
-// MARK: - ImageFunc
-extension AddServicessAdminTableViewController{
-    func uploadImagee(){
-        let imageName = NSUUID().uuidString
-        if let imgData = self.imageViewLogo.image?.pngData() {
-            guard let name = nameServicessLabel.text, let price = priceServicessLabel.text, let descriptionServ = descriptionServiceLabel.text , name != "", price != "", descriptionServ != "" else {
-                showAlert(title: "Введённые данные некорректны", message:"")
-                return
-            }
-           let storageRef = Storage.storage().reference().child("services_images").child("\(imageName).png")
-            let metaData = StorageMetadata()
-            metaData.contentType = "image/png"
-            storageRef.putData(imgData, metadata: metaData) {(metadata, error) in
-                if error == nil {
-                    print("good")
-                    storageRef.downloadURL(completion: {[weak self] (url, error) in
-                        if error == nil {
-                            print("Good")
-                        }
-                        guard let url = url else { return }
-                        let serv = Servicess(title:name,price:price,userId:"userId",order:false,status:false,image: url.absoluteString, dataTimeOrder:"", dateComplitionServ:"", dateApprovedOrders:"", descriptionServ:descriptionServ)
-                        if let title = serv.title {
-                            let servRef = self?.ref?.child(title.lowercased())
-                            servRef?.setValue(serv.convertToDictionary())
-                            self!.performSegue(withIdentifier: "back", sender: self)
-                        }
-                    })
-                }
-            }
-        }
-    }
 }

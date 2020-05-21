@@ -49,7 +49,6 @@
 		EDED5EF72359F29B00264388 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDED5EF62359F29B00264388 /* User.swift */; };
 		EDED5EF9235A202200264388 /* Rooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDED5EF8235A202200264388 /* Rooms.swift */; };
 		EDED5EFD235A4B0700264388 /* RoomsUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDED5EFC235A4B0700264388 /* RoomsUserTableViewCell.swift */; };
-		EDF4E705245883060014F87B /* editProvileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF4E704245883060014F87B /* editProvileViewController.swift */; };
 		EDF4E70F2458A3AB0014F87B /* HistoryOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF4E70E2458A3AB0014F87B /* HistoryOrderViewController.swift */; };
 		EDF4E7112458A4670014F87B /* HistoryOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF4E7102458A4670014F87B /* HistoryOrderTableViewCell.swift */; };
 		EDF74F0A2438F43A005EBEAE /* MainClientAdminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF74F092438F43A005EBEAE /* MainClientAdminVC.swift */; };
@@ -107,7 +106,6 @@
 		EDED5EF62359F29B00264388 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EDED5EF8235A202200264388 /* Rooms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rooms.swift; sourceTree = "<group>"; };
 		EDED5EFC235A4B0700264388 /* RoomsUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsUserTableViewCell.swift; sourceTree = "<group>"; };
-		EDF4E704245883060014F87B /* editProvileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editProvileViewController.swift; sourceTree = "<group>"; };
 		EDF4E70E2458A3AB0014F87B /* HistoryOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryOrderViewController.swift; sourceTree = "<group>"; };
 		EDF4E7102458A4670014F87B /* HistoryOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryOrderTableViewCell.swift; sourceTree = "<group>"; };
 		EDF74F092438F43A005EBEAE /* MainClientAdminVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainClientAdminVC.swift; sourceTree = "<group>"; };
@@ -356,7 +354,6 @@
 		EDF4E703245882E00014F87B /* editProfile */ = {
 			isa = PBXGroup;
 			children = (
-				EDF4E704245883060014F87B /* editProvileViewController.swift */,
 				ED68DEDB245D8FF200393CB5 /* editprofile2TableViewController.swift */,
 			);
 			name = editProfile;
@@ -543,7 +540,6 @@
 				EDED5EFD235A4B0700264388 /* RoomsUserTableViewCell.swift in Sources */,
 				EDC9BA4E2383314800EA6CEA /* usersAndAdmin.swift in Sources */,
 				ED08A6AD2439CC5D0042F26B /* ComlitionAllCellTableViewCell.swift in Sources */,
-				EDF4E705245883060014F87B /* editProvileViewController.swift in Sources */,
 				EDBC5FB623605F0C00ACC7B8 /* Servicess.swift in Sources */,
 				EDBC5FB2235FB06F00ACC7B8 /* RoomsAdminTableViewController.swift in Sources */,
 				EDD5C8C9241AD438003DCFB1 /* userServicesDemonstrationViewController.swift in Sources */,

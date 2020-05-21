@@ -5,7 +5,7 @@ class BascetTableViewCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var imageLogo: UIImageView!
-    @IBOutlet weak var countStepper: UILabel!
+ 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

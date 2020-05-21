@@ -1,7 +1,6 @@
 import UIKit
 import Firebase
 class roomsDemostretionViewController: UIViewController {
- //   @IBOutlet weak var titleRoomLabel: UILabel!
     @IBOutlet weak var priceRoomLabel: UILabel!
     @IBOutlet weak var textFieldDateArrival: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
@@ -36,7 +35,6 @@ class roomsDemostretionViewController: UIViewController {
         downloadDate()
         setupButton()
         setupDescription()
-        
     }
     
     // MARK: - OrderButton
@@ -67,9 +65,6 @@ class roomsDemostretionViewController: UIViewController {
                     if ((i.dateArrival!<=String(textFieldDateArrival.text!) && i.dateDeparture! >= String(textFieldDateArrival.text!)) || (i.dateArrival! <= String(textFieldDateDeparture.text!) && i.dateDeparture! >= String(textFieldDateDeparture.text!) )) || ((String(textFieldDateArrival.text!) <= i.dateArrival!) && (String(textFieldDateDeparture.text!) >= i.dateDeparture!)){
                         self.showAlert(title: "Номер занят" , message: "Номер в эти даты занят c \(arrayOrderArrival) по \(arrayOrderDeparture))")
                         break
-                    }else{
-                        //  buscet()
-                        // self.showAlert(title: "Номер добавлен", message: "")
                     }
                 }
             }

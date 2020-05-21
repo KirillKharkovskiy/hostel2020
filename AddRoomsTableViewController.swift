@@ -21,22 +21,22 @@ class AddRoomsTableViewController: UITableViewController {
         setupTextView()
     }
     func setupTextView(){
-          descriptionRoomsLabel.layer.cornerRadius = 10
-          descriptionRoomsLabel.layer.borderWidth = 1.2
-          descriptionRoomsLabel.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-          descriptionRoomsLabel.clipsToBounds = true
-          
-          nameLabel.layer.cornerRadius = 10
-          nameLabel.layer.borderWidth = 1.2
-          nameLabel.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-          nameLabel.clipsToBounds = true
-          
-          priceLabel.layer.cornerRadius = 10
-          priceLabel.layer.borderWidth = 1.2
-          priceLabel.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-          priceLabel.clipsToBounds = true
-          
-      }
+        descriptionRoomsLabel.layer.cornerRadius = 10
+        descriptionRoomsLabel.layer.borderWidth = 1.2
+        descriptionRoomsLabel.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        descriptionRoomsLabel.clipsToBounds = true
+        
+        nameLabel.layer.cornerRadius = 10
+        nameLabel.layer.borderWidth = 1.2
+        nameLabel.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        nameLabel.clipsToBounds = true
+        
+        priceLabel.layer.cornerRadius = 10
+        priceLabel.layer.borderWidth = 1.2
+        priceLabel.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        priceLabel.clipsToBounds = true
+        
+    }
     
     func setupTableView(){
         tableView.tableFooterView = UIView(frame: CGRect.zero) // мметод что бы не прорисовывались лишнии ячейки
@@ -55,7 +55,7 @@ class AddRoomsTableViewController: UITableViewController {
         self.setypImagePicker()
     }
     
-
+    
 }
 // MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate
 extension AddRoomsTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{

@@ -47,7 +47,7 @@ class RoomsUserTableViewController: UITableViewController {
                 _rooms.append(rooms)
             }
             self?.rooms = _rooms
-
+            
             self?.tableView.reloadData()
         })
     }
@@ -63,7 +63,7 @@ extension RoomsUserTableViewController{
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rooms.count
-     
+        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -85,7 +85,7 @@ extension RoomsUserTableViewController{
                 DispatchQueue.main.async {
                     cell.imageViewLabel?.image = UIImage(data: data!)
                 }
-                }.resume()
+            }.resume()
         }
         return cell
     }

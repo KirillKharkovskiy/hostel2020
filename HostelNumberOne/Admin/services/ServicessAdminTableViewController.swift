@@ -75,7 +75,7 @@ extension ServicessAdminTableViewController{
                 DispatchQueue.main.async {
                     cell.imageLabel?.image = UIImage(data: data!)
                 }
-                }.resume()
+            }.resume()
         }
         return cell
     }

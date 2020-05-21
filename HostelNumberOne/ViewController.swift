@@ -1,6 +1,5 @@
 import UIKit
 import Firebase
-
 class ViewController: UIViewController {
     @IBOutlet weak var warnLabel: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
@@ -9,19 +8,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     var ref : DatabaseReference!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        warnLabel.alpha = 0 // ошибка при загрузке не будет показываться те прозрачный
+        button()
+        textfieldSetup()
+    }
+    
     @IBAction func unwindToThisLOGIN(segue: UIStoryboardSegue){ // объявление сегвея для возврата на этот вью
     }
     
-    func displayWarningLabel(withText text:String){
-        warnLabel.text = text
-        UIView.animate(withDuration: 3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {[weak self] in
-            self?.warnLabel.alpha = 1
-        }) {[weak self] comlete in
-            self?.warnLabel.alpha = 0
-        }
+    @IBAction func loginTapped(_ sender: UIButton) {
+        loginTap()
     }
     
-    @IBAction func loginTapped(_ sender: UIButton) {
+    func loginTap(){
         guard let email = emailTextField.text, let password = passwordTextField.text, email != "", password != "" else {
             displayWarningLabel(withText: "Info is incorrect")
             return
@@ -34,16 +35,20 @@ class ViewController: UIViewController {
             }
         }
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        warnLabel.alpha = 0 // ошибка при загрузке не будет показываться те прозрачный
-        button()
-        textfieldSetup()
-        
+    func displayWarningLabel(withText text:String){
+        warnLabel.text = text
+        UIView.animate(withDuration: 3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {[weak self] in
+            self?.warnLabel.alpha = 1
+        }) {[weak self] comlete in
+            self?.warnLabel.alpha = 0
+        }
     }
+}
+
+// MARK: - design
+extension ViewController {
     // MARK: - designTextField
     func textfieldSetup(){
-        
         emailTextField.layer.cornerRadius = 5  /// радиус закругления закругление
         emailTextField.layer.borderWidth = 1.0   // толщина обводки
         emailTextField.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
@@ -53,10 +58,6 @@ class ViewController: UIViewController {
         passwordTextField.layer.borderWidth = 1.0   // толщина обводки
         passwordTextField.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
         passwordTextField.clipsToBounds = true  // не забудь это, а то не закруглиться
-        
-        
-        
-        
     }
     // MARK: - designButton
     func button(){

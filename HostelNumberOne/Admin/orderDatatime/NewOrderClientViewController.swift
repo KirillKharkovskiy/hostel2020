@@ -2,8 +2,7 @@ import UIKit
 import Firebase
 
 class NewOrderClientViewController: UIViewController,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource {
-    @IBAction func unwindToThisOrderMain(segue: UIStoryboardSegue){ // объявление сегвея для возврата на этот вью
-     }
+    @IBAction func unwindToThisOrderMain(segue: UIStoryboardSegue){}
     @IBOutlet weak var tableView: UITableView!
     var rooms = [Rooms]()
     var services = [Servicess]()
@@ -11,9 +10,7 @@ class NewOrderClientViewController: UIViewController,DZNEmptyDataSetDelegate,DZN
     var buscet = [Category]()
     var dictKey = [String]()
     var arrayRooms = [Rooms].self
-    
- 
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -24,38 +21,35 @@ class NewOrderClientViewController: UIViewController,DZNEmptyDataSetDelegate,DZN
         tableView.emptyDataSetDelegate = self
         tableView.tableFooterView = UIView()
     }
-    
     func setupTableView(){
         tableView.tableFooterView = UIView(frame: CGRect.zero) // мметод что бы не прорисовывались лишнии ячейки
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
-     
     }
+    
     override func viewWillAppear(_ animated: Bool) { // включаем свайп
         super.viewWillAppear(true)
         observdata()
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
-        
     }
 }
+
 // MARK: - Table view data source
 extension NewOrderClientViewController: UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return dictKey.count
-        
+        return dictKey.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! OrderUserTableViewCell
         let dictIndex = dictKey[indexPath.row]
-            cell.mailLabel.text = dictIndex
-            cell.accessoryType = .disclosureIndicator
+        cell.mailLabel.text = dictIndex
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
 }
-
 
 // MARK: - download child"Buscet"
 extension NewOrderClientViewController{
@@ -92,24 +86,24 @@ extension NewOrderClientViewController{
                                 for item in value.Rooms{
                                     if key == item.value.dataTimeOrder {
                                         // мб благодаря этому условию можно будет избежать дополнительной сортировки, но не факт
-                                    
-                                    let _rooms = Rooms(title: item.value.title!, userId: item.value.userId!, price: item.value.price!, status: item.value.status!, order: item.value.order!, image: item.value.image!, dataTimeOrder:item.value.dataTimeOrder!, dateArrival: item.value.dateArrival!, dateDeparture: item.value.dateDeparture!, dateApprovedOrders: item.value.dateApprovedOrders!, descriptionRoom: item.value.descriptionRoom!)
-                                    self.rooms.append(_rooms)
-                                    self.tableView.reloadData()
+                                        
+                                        let _rooms = Rooms(title: item.value.title!, userId: item.value.userId!, price: item.value.price!, status: item.value.status!, order: item.value.order!, image: item.value.image!, dataTimeOrder:item.value.dataTimeOrder!, dateArrival: item.value.dateArrival!, dateDeparture: item.value.dateDeparture!, dateApprovedOrders: item.value.dateApprovedOrders!, descriptionRoom: item.value.descriptionRoom!)
+                                        self.rooms.append(_rooms)
+                                        self.tableView.reloadData()
                                     }
                                 }
                                 for item in value.Services{
-                                     if key == item.value.dataTimeOrder {
-                                    let _serv = Servicess(title: item.value.title!, price: item.value.price!, userId: item.value.userId!, order: item.value.order!, status: item.value.status!, image: item.value.image!, dataTimeOrder: item.value.dataTimeOrder!, dateComplitionServ: item.value.dateComplitionServ!, dateApprovedOrders: item.value.dateApprovedOrders!, descriptionServ: item.value.descriptionServ!)
-                                    self.services.append(_serv)
-                                    self.tableView.reloadData()
+                                    if key == item.value.dataTimeOrder {
+                                        let _serv = Servicess(title: item.value.title!, price: item.value.price!, userId: item.value.userId!, order: item.value.order!, status: item.value.status!, image: item.value.image!, dataTimeOrder: item.value.dataTimeOrder!, dateComplitionServ: item.value.dateComplitionServ!, dateApprovedOrders: item.value.dateApprovedOrders!, descriptionServ: item.value.descriptionServ!)
+                                        self.services.append(_serv)
+                                        self.tableView.reloadData()
                                     }
                                 }
                                 for item in value.Profile{
-                                     if key == item.value.dataTimeOrder {
-                                    let _profil = userAndAdmin(email: item.value.email!, fullName: item.value.fullName!, isAdmin: item.value.isAdmin!, passport: item.value.passport!, password: item.value.password!, userId: item.value.userId!, phoneNumber: item.value.phoneNumber!, dataTimeOrder: item.value.dataTimeOrder!, dateApprovedOrders: item.value.dateApprovedOrders!)
-                                    self.profile.append(_profil)
-                                    self.tableView.reloadData()
+                                    if key == item.value.dataTimeOrder {
+                                        let _profil = userAndAdmin(email: item.value.email!, fullName: item.value.fullName!, isAdmin: item.value.isAdmin!, passport: item.value.passport!, password: item.value.password!, userId: item.value.userId!, phoneNumber: item.value.phoneNumber!, dataTimeOrder: item.value.dataTimeOrder!, dateApprovedOrders: item.value.dateApprovedOrders!)
+                                        self.profile.append(_profil)
+                                        self.tableView.reloadData()
                                     }
                                 }
                             } else{
@@ -121,7 +115,6 @@ extension NewOrderClientViewController{
             }
         })
     }
-    
 }
 // MARK: - segue
 extension NewOrderClientViewController{
@@ -152,24 +145,24 @@ extension NewOrderClientViewController{
 
 // MARK:- DZNEmptyDataSet
 extension NewOrderClientViewController{
-
-
-
-func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-    let str = "Новых заказов пока нет"
-    let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .headline)]
-    return NSAttributedString(string: str, attributes: attrs)
-}
-
-func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-    let str = "Спустя время сделают заказ!"
-    let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body)]
-    return NSAttributedString(string: str, attributes: attrs)
-}
-
-func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
-    return UIImage(named: "profile")
-}
-
+    
+    
+    
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        let str = "Новых заказов пока нет"
+        let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .headline)]
+        return NSAttributedString(string: str, attributes: attrs)
+    }
+    
+    func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        let str = "Спустя время сделают заказ!"
+        let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body)]
+        return NSAttributedString(string: str, attributes: attrs)
+    }
+    
+    func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
+        return UIImage(named: "profile")
+    }
+    
     
 }

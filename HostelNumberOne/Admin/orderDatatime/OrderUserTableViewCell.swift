@@ -1,9 +1,6 @@
-
 import UIKit
-
 class OrderUserTableViewCell: UITableViewCell {
     @IBOutlet weak var mailLabel: UILabel!
-   
     
     override func awakeFromNib() {
         super.awakeFromNib()

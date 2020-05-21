@@ -99,9 +99,7 @@ extension roomsDemostretionViewController{
     
     // MARK: - ViewDidload
     
-
     func roomArray(){
-        //  titleRoomLabel.text = rooms.title
         priceRoomLabel.text = rooms.price! + " руб"
         descriptionTextView.text = rooms.descriptionRoom
         descriptionTextView.isEditable = false 

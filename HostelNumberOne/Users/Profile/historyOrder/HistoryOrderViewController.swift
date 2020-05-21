@@ -2,12 +2,15 @@ import UIKit
 import Firebase
 
 class HistoryOrderViewController: UIViewController, DZNEmptyDataSetDelegate,DZNEmptyDataSetSource{
+    
     @IBOutlet weak var tableView: UITableView!
     var arrayRooms = [Rooms]()
     var arrayService = [Servicess]()
-     var user: Users!
-     let sectionHeaders = ["Номера","Услуги"]
+    var user: Users!
+    let sectionHeaders = ["Номера","Услуги"]
     var sectionContent = [[Rooms]().self,[Servicess]().self] as [Any]
+    
+    // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
@@ -20,20 +23,17 @@ class HistoryOrderViewController: UIViewController, DZNEmptyDataSetDelegate,DZNE
         tableView.emptyDataSetDelegate = self
         tableView.tableFooterView = UIView()
     }
-    
     func setupFirebase(){
-           
-           guard let currentUser = Auth.auth().currentUser else {return}
-           user = Users(user: currentUser)
-       }
+        guard let currentUser = Auth.auth().currentUser else {return}
+        user = Users(user: currentUser)
+    }
+    
+    // MARK: - ViewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         observeDataRooms()
         observeDataServices()
-        
     }
-    
-    
     func observeDataRooms(){
         let refRoomsBuscet = Database.database().reference(withPath:"users").child(user.uid!).child("HistoryOrder").child("Rooms")
         refRoomsBuscet.observe(.value, with: { [weak self](snapshot) in
@@ -58,20 +58,17 @@ class HistoryOrderViewController: UIViewController, DZNEmptyDataSetDelegate,DZNE
             self?.tableView.reloadData()
         })
     }
-    
-    
 }
 
 // MARK: - TableViewController
-
 extension HistoryOrderViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-         return sectionHeaders[section]
-     }
-     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-         return 0
-     }
+        return sectionHeaders[section]
+    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0
+    }
     func numberOfSections(in tableView: UITableView) -> Int {
         return sectionHeaders.count
     }
@@ -92,20 +89,20 @@ extension HistoryOrderViewController: UITableViewDelegate, UITableViewDataSource
             cell.arrivalLabel.text = rooms.dateArrival
             cell.departureLabel.text = rooms.dateDeparture
             cell.imageViewLabel.contentMode = .scaleAspectFill
-               cell.imageViewLabel.layer.cornerRadius = 10
-               cell.imageViewLabel.clipsToBounds = true
-               if let imageLogo = rooms.image{
-                   let url = URL(string: imageLogo)!
-                   URLSession.shared.dataTask(with: url) { (data, response, error) in
-                       if error != nil {
-                           print(error!)
-                           return
-                       }
-                       DispatchQueue.main.async {
-                           cell.imageViewLabel?.image = UIImage(data: data!)
-                       }
-                       }.resume()
-               }
+            cell.imageViewLabel.layer.cornerRadius = 10
+            cell.imageViewLabel.clipsToBounds = true
+            if let imageLogo = rooms.image{
+                let url = URL(string: imageLogo)!
+                URLSession.shared.dataTask(with: url) { (data, response, error) in
+                    if error != nil {
+                        print(error!)
+                        return
+                    }
+                    DispatchQueue.main.async {
+                        cell.imageViewLabel?.image = UIImage(data: data!)
+                    }
+                }.resume()
+            }
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellService", for: indexPath) as! HistoryOrderTableViewCell
@@ -126,36 +123,29 @@ extension HistoryOrderViewController: UITableViewDelegate, UITableViewDataSource
                     DispatchQueue.main.async {
                         cell.imageViewLabel?.image = UIImage(data: data!)
                     }
-                    }.resume()
+                }.resume()
             }
             return cell
         }
     }
 }
 
- // MARK:- DZNEmptyDataSet
+// MARK:- DZNEmptyDataSet
 extension HistoryOrderViewController{
-   
     
-
     func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
         let str = "История заказова пока пустая"
         let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .headline)]
         return NSAttributedString(string: str, attributes: attrs)
     }
-
+    
     func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
         let str = "Мы ждем ваш заказ"
         let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body)]
         return NSAttributedString(string: str, attributes: attrs)
     }
-
+    
     func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
         return UIImage(named: "bascet40px")
     }
-
-        
-    
-
-    
 }

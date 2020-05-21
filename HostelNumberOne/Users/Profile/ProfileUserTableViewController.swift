@@ -14,7 +14,6 @@ class ProfileUserTableViewController: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1
@@ -27,8 +26,6 @@ class ProfileUserTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ProfileUserTableViewCell
             cell.titleLabel.text = "Мои данные"
             cell.accessoryType = .disclosureIndicator
-            
-            
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellHistory", for: indexPath) as! ProfileUserTableViewCell
@@ -36,7 +33,6 @@ class ProfileUserTableViewController: UITableViewController {
             cell.accessoryType = .disclosureIndicator
             return cell
         }
-        
     }
 }
 

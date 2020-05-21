@@ -1,11 +1,3 @@
-//
-//  RoomsAdminTableViewCell.swift
-//  HostelNumberOne
-//
-//  Created by Кирилл on 19/10/2019.
-//  Copyright © 2019 Кирилл. All rights reserved.
-//
-
 import UIKit
 
 class RoomsAdminTableViewCell: UITableViewCell {

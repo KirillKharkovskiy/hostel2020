@@ -1,8 +1,7 @@
 import UIKit
 import Firebase
 class RoomsAdminTableViewController: UITableViewController {
-    @IBAction func unwindToThisAdminRooms(segue: UIStoryboardSegue){ // объявление сегвея для возврата на этот вью
-    }
+    @IBAction func unwindToThisAdminRooms(segue: UIStoryboardSegue){}
     var ref : DatabaseReference?
     var user: Users!
     var rooms = Array<Rooms>()
@@ -12,10 +11,6 @@ class RoomsAdminTableViewController: UITableViewController {
         setupTableView()
         setupFirebase()
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        observeData()
-    }
     func setupTableView(){
         tableView.tableFooterView = UIView(frame: CGRect.zero) // мметод что бы не прорисовывались лишнии ячейки
     }
@@ -24,6 +19,12 @@ class RoomsAdminTableViewController: UITableViewController {
         user = Users(user: currentUser )
         ref = Database.database().reference(withPath: "ROOMS")
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        observeData()
+    }
+    
     func observeData(){
         ref?.observe(.value, with: {[weak self] (snapshot) in
             var _rooms = Array<Rooms>()
@@ -35,6 +36,7 @@ class RoomsAdminTableViewController: UITableViewController {
             self?.tableView.reloadData()
         })
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         ref?.removeAllObservers()

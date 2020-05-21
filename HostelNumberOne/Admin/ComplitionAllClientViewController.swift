@@ -21,20 +21,11 @@ class ComplitionAllClientViewController: UIViewController {
         sortedServic()
         sortedProfilefunc()
         button()
-        
     }
-    
     func setupTableView(){
         tableView.tableFooterView = UIView(frame: CGRect.zero) // мметод что бы не прорисовывались лишнии ячейки
     }
-    func button(){
-        buttonEvictionClient.layer.cornerRadius = 8  /// радиус закругления закругление
-        buttonEvictionClient.clipsToBounds = true  // не забудь это, а то не закруглиться
-        buttonEvictionClient.layer.cornerRadius = 8    /// радиус закругления закругление
-        buttonEvictionClient.layer.borderWidth = 2.0   // толщина обводки
-        buttonEvictionClient.layer.borderColor = #colorLiteral(red: 0.7372517472, green: 0.3826456109, blue: 0.795703428, alpha: 1)
-        buttonEvictionClient.clipsToBounds = true  // не забудь это, а то не закруглиться
-    }
+    
     
     // MARK: - ActionButtonEvectionClient
     @IBAction func buttonEvicttionClient(_ sender: Any) {
@@ -166,3 +157,15 @@ extension ComplitionAllClientViewController{
         }
     }
 }
+// MARK: - designButton
+extension ComplitionAllClientViewController{
+    func button(){
+        buttonEvictionClient.layer.cornerRadius = 8  /// радиус закругления закругление
+        buttonEvictionClient.clipsToBounds = true  // не забудь это, а то не закруглиться
+        buttonEvictionClient.layer.cornerRadius = 8    /// радиус закругления закругление
+        buttonEvictionClient.layer.borderWidth = 2.0   // толщина обводки
+        buttonEvictionClient.layer.borderColor = #colorLiteral(red: 0.7372517472, green: 0.3826456109, blue: 0.795703428, alpha: 1)
+        buttonEvictionClient.clipsToBounds = true  // не забудь это, а то не закруглиться
+    }
+}
+

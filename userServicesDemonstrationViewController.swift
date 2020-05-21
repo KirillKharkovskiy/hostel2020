@@ -20,13 +20,11 @@ class userServicesDemonstrationViewController: UIViewController {
         image()
         setupButton()
         setupDescription()
-        
     }
     
     // MARK: - DatrPicker Arrival
     func datePickerFunc(){
         datePicker = UIDatePicker()
-        // datePicker?.datePickerMode = .date // если убрать будет дата с временем
         datePicker?.minimumDate = datePicker?.date
         textFieldDateOrder.inputView = datePicker
         datePicker?.addTarget(self, action: #selector(roomsDemostretionViewController.dataChangetArrival(dataPicker:)), for: .valueChanged)

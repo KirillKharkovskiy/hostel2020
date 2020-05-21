@@ -1,13 +1,4 @@
-//
-//  ComplitionOrderCell.swift
-//  HostelNumberOne
-//
-//  Created by Кирилл on 04.04.2020.
-//  Copyright © 2020 Кирилл. All rights reserved.
-//
-
 import UIKit
-
 class ComplitionOrderTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!

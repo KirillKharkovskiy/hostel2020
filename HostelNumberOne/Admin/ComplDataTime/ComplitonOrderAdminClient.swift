@@ -1,7 +1,9 @@
 import UIKit
 import Firebase
 class ComplitonOrderAdminClient: UIViewController, DZNEmptyDataSetDelegate,DZNEmptyDataSetSource {
+    @IBAction func unwindToThisComplitionMain(segue: UIStoryboardSegue){}
     @IBOutlet weak var tableView: UITableView!
+    
     var rooms = [Rooms]()
     var services = [Servicess]()
     var profile = [userAndAdmin]()
@@ -9,24 +11,17 @@ class ComplitonOrderAdminClient: UIViewController, DZNEmptyDataSetDelegate,DZNEm
     var dictKey = [String]()
     var arrayRooms = [Rooms].self
     
-    @IBAction func unwindToThisComplitionMain(segue: UIStoryboardSegue){ // объявление сегвея для возврата на этот вью
-    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         setupView()
     }
-    
     func setupView(){
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
         tableView.tableFooterView = UIView()
     }
-    
     func setupTableView(){
-        
         tableView.tableFooterView = UIView(frame: CGRect.zero) // мметод что бы не прорисовывались лишнии ячейки
         tableView.reloadData()
     }
@@ -37,7 +32,6 @@ class ComplitonOrderAdminClient: UIViewController, DZNEmptyDataSetDelegate,DZNEm
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
-        
     }
 }
 
@@ -116,8 +110,8 @@ extension ComplitonOrderAdminClient{
             }
         })
     }
-    
 }
+
 // MARK: - segue
 extension ComplitonOrderAdminClient{
     func toDisplayServ(indexPath : IndexPath) -> String {
@@ -147,8 +141,6 @@ extension ComplitonOrderAdminClient{
 // MARK:- DZNEmptyDataSet
 extension ComplitonOrderAdminClient{
     
-    
-    
     func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
         let str = "Принятых заказов пока нет"
         let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .headline)]
@@ -164,6 +156,5 @@ extension ComplitonOrderAdminClient{
     func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
         return UIImage(named: "profile")
     }
-    
     
 }

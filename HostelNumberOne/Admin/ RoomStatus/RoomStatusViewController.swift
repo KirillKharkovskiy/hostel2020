@@ -40,7 +40,7 @@ extension RoomStatusViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RoomStatusTableViewCell
         let room = rooms[indexPath.row]
-       print(rooms.count)
+        print(rooms.count)
         cell.titileLabel.text = room.title
         cell.arrivalDateLabel.text = " Дата заезда: " + room.dateArrival!
         cell.dateDepartureLabel.text = " Дата выезда: " + room.dateDeparture!
@@ -48,17 +48,17 @@ extension RoomStatusViewController: UITableViewDataSource, UITableViewDelegate{
         cell.imageViewLabel.layer.cornerRadius = 20
         cell.imageViewLabel.clipsToBounds = true
         if let imageLogo = room.image{
-                   let url = URL(string: imageLogo)!
-                   URLSession.shared.dataTask(with: url) { (data, response, error) in
-                       if error != nil {
-                           print(error!)
-                           return
-                       }
-                       DispatchQueue.main.async {
-                           cell.imageViewLabel?.image = UIImage(data: data!)
-                       }
-                       }.resume()
-               }
+            let url = URL(string: imageLogo)!
+            URLSession.shared.dataTask(with: url) { (data, response, error) in
+                if error != nil {
+                    print(error!)
+                    return
+                }
+                DispatchQueue.main.async {
+                    cell.imageViewLabel?.image = UIImage(data: data!)
+                }
+            }.resume()
+        }
         return cell
     }
 }
@@ -128,23 +128,21 @@ extension RoomStatusViewController{
 // MARK:- DZNEmptyDataSet
 extension RoomStatusViewController{
 
-
-
-func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-    let str = "Все номера свободны"
-    let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .headline)]
-    return NSAttributedString(string: str, attributes: attrs)
-}
-
-func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-    let str = "Пока вы не одобрите заказ, номер будет свободен"
-    let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body)]
-    return NSAttributedString(string: str, attributes: attrs)
-}
-
-func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
-    return UIImage(named: "roms35")
-}
-
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        let str = "Все номера свободны"
+        let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .headline)]
+        return NSAttributedString(string: str, attributes: attrs)
+    }
+    
+    func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        let str = "Пока вы не одобрите заказ, номер будет свободен"
+        let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body)]
+        return NSAttributedString(string: str, attributes: attrs)
+    }
+    
+    func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
+        return UIImage(named: "roms35")
+    }
+    
     
 }

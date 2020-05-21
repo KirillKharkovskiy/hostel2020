@@ -2,12 +2,10 @@ import UIKit
 import Firebase
 
 class BascetUserTableViewController: UITableViewController, DZNEmptyDataSetDelegate,DZNEmptyDataSetSource {
-    
     var user: Users!
     var rooms = [Rooms]()
     var serv = [Servicess]()
     var profile = [userAndAdmin]()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,12 +19,11 @@ class BascetUserTableViewController: UITableViewController, DZNEmptyDataSetDeleg
         tableView.emptyDataSetDelegate = self
         tableView.tableFooterView = UIView()
     }
-    
-    
     func setupFirebase(){
         guard let currentUser = Auth.auth().currentUser else {return}
         user = Users(user: currentUser )
     }
+    
     //  MARK: - Download "(userBuscet)"
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -72,15 +69,13 @@ class BascetUserTableViewController: UITableViewController, DZNEmptyDataSetDeleg
         })
     }
     
-    
     //  MARK: - Order
     @IBAction func toOrder(_ sender: UIBarButtonItem) {
         if rooms.isEmpty || serv.isEmpty {
-            self.showAlert(title: "Недостаточно элементов", message:"Если вы добавили только номер, то необходимо выбрать услугу")
+            self.showAlert(title: "Недостаточно элементов", message:"Если вы добавили только номер, то необходимо выбрать услугу. Все услуги бесплатные!")
         }else {
             orderBuscet()
-            self.showAlert(title:"Заказ успешно выполнен", message: "В скором времени с вами свяжется администратор")
-            
+            self.showAlert(title:"Заказ успешно выполнен", message: "В скором времени вам придет уведомление на почту подтверждение номера.")
             Database.database().reference(withPath:"users").child(user.uid!).child("Buscet").removeValue()
         }
     }
@@ -224,23 +219,19 @@ extension BascetUserTableViewController {
 // MARK:- DZNEmptyDataSet
 extension BascetUserTableViewController{
 
-
-
-func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-    let str = "В корзине пока пусто"
-    let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .headline)]
-    return NSAttributedString(string: str, attributes: attrs)
-}
-
-func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-    let str = "Корзина ждет, что ее наполнят!"
-    let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body)]
-    return NSAttributedString(string: str, attributes: attrs)
-}
-
-func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
-    return UIImage(named: "bascet40px")
-}
-
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        let str = "В корзине пока пусто"
+        let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .headline)]
+        return NSAttributedString(string: str, attributes: attrs)
+    }
     
+    func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        let str = "Корзина ждет, что ее наполнят!"
+        let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body)]
+        return NSAttributedString(string: str, attributes: attrs)
+    }
+    
+    func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
+        return UIImage(named: "bascet40px")
+    }
 }
