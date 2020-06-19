@@ -18,7 +18,6 @@ class editprofile2TableViewController: UITableViewController {
         setupkeyboard()
     }
     func setupkeyboard(){
-        passportTextField.keyboardType = .asciiCapableNumberPad
         telephoneTextField.keyboardType = .asciiCapableNumberPad
     }
     func setupFirebase(){
@@ -30,7 +29,6 @@ class editprofile2TableViewController: UITableViewController {
     @IBAction func saveButton(_ sender: Any) {
         let ref = Database.database().reference().child("users").child(user.uid!).child("profile").child(name)
         ref.updateChildValues([
-            "passport" : passportTextField.text as Any,
             "phoneNumber" : telephoneTextField.text as Any])
     }
     
@@ -58,7 +56,6 @@ class editprofile2TableViewController: UITableViewController {
         for item in profile {
             fullnametextField.text = item.fullName
             fullnametextField.isUserInteractionEnabled = false
-            passportTextField.text = item.passport
             telephoneTextField.text = item.phoneNumber
             emailTextField.text = item.email
             emailTextField.isUserInteractionEnabled = false

@@ -56,23 +56,7 @@ extension RoomsAdminTableViewController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RoomsAdminTableViewCell
         let _rooms = rooms[indexPath.row]
-        cell.titleLabel.text = _rooms.title
-        cell.priceLabel.text = _rooms.price! + " руб"
-        cell.imageViewLabel.contentMode = .scaleAspectFill
-        cell.imageViewLabel.layer.cornerRadius = 20
-        cell.imageViewLabel.clipsToBounds = true
-        if let imageLogo = _rooms.image{
-            let url = URL(string: imageLogo)!
-            URLSession.shared.dataTask(with: url) { (data, response, error) in
-                if error != nil {
-                    print(error!)
-                    return
-                }
-                DispatchQueue.main.async {
-                    cell.imageViewLabel?.image = UIImage(data: data!)
-                }
-            }.resume()
-        }
+        cell.configure(with: _rooms)
         return cell
     }
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {

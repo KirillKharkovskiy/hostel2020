@@ -43,6 +43,9 @@ class BascetUserTableViewController: UITableViewController, DZNEmptyDataSetDeleg
             self?.tableView.reloadData()
         })
     }
+    
+
+    
     func observeDataServices(){
         let refServicesBuscet = Database.database().reference(withPath:"users").child(user.uid!).child("Buscet").child("Services")
         refServicesBuscet.observe(.value, with: { [weak self](snapshot) in
@@ -79,7 +82,6 @@ class BascetUserTableViewController: UITableViewController, DZNEmptyDataSetDeleg
             Database.database().reference(withPath:"users").child(user.uid!).child("Buscet").removeValue()
         }
     }
-    
     func orderBuscet(){
         let refHistoryOrderRoom = Database.database().reference(withPath:"users").child(user.uid!).child("HistoryOrder").child("Rooms")
         let refHostoryOrderServ = Database.database().reference(withPath:"users").child(user.uid!).child("HistoryOrder").child("Services")
@@ -132,64 +134,30 @@ extension BascetUserTableViewController {
         }
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 { // first section
+        switch indexPath.section {
+        case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! BascetTableViewCell
             let _rooms = rooms[indexPath.row]
-            cell.titleLabel.text = _rooms.title
-            cell.priceLabel.text = _rooms.price! + " руб"
-            cell.imageLogo.contentMode = .scaleAspectFill
-            cell.imageLogo.layer.cornerRadius = 20
-            cell.imageLogo.clipsToBounds = true
-            if let imageLogo = _rooms.image{
-                let url = URL(string: imageLogo)!
-                URLSession.shared.dataTask(with: url) { (data, response, error) in
-                    if error != nil {
-                        print(error!)
-                        return
-                    }
-                    DispatchQueue.main.async {
-                        cell.imageLogo?.image = UIImage(data: data!)
-                    }
-                }.resume()
-            }
+            cell.configureRooms(with: _rooms)
             return cell
-        } else { // other section (second)
+        default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellServ", for: indexPath) as! BascetTableViewCell
             let _serv = serv[indexPath.row]
-            
-            
-            cell.titleLabel.text = _serv.title
-            cell.priceLabel.text = _serv.price! + " руб"
-            cell.imageLogo.contentMode = .scaleAspectFill
-            cell.imageLogo.layer.cornerRadius = 20
-            cell.imageLogo.clipsToBounds = true
-            
-            if let imageLogo = _serv.image{
-                let url = URL(string: imageLogo)!
-                URLSession.shared.dataTask(with: url) { (data, response, error) in
-                    if error != nil {
-                        print(error!)
-                        return
-                    }
-                    DispatchQueue.main.async {
-                        cell.imageLogo?.image = UIImage(data: data!)
-                    }
-                }.resume()
-            }
+            cell.configureService(with: _serv)
             return cell
-            //сделать через case
         }
     }
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         
         let deleteAction = UITableViewRowAction(style: .default, title: "Удалить"){_,_ in
-            if indexPath.section == 0 {
+            switch indexPath.section {
+            case 0:
                 let listRoom = self.rooms[indexPath.row].title
                 let refRooms = Database.database().reference(withPath: "users").child(self.user.uid!).child("Buscet").child("Rooms")
                 refRooms.child(listRoom!).removeValue()
                 print ("сработала эта секция номера")
-            }else {
+            default:
                 let listServ = self.serv[indexPath.row].title!
                 let refServicesBuscet = Database.database().reference(withPath:"users").child(self.user.uid!).child("Buscet").child("Services")
                 refServicesBuscet.child(listServ).removeValue()
@@ -203,22 +171,13 @@ extension BascetUserTableViewController {
         deleteAction.backgroundColor = #colorLiteral(red: 0.5791940689, green: 0.1280144453, blue: 0.5726861358, alpha: 1)
         return [deleteAction]
     }
-    
-    func datatime()->String{
-        let now = Date()
-        let formatter = DateFormatter()
-        formatter.timeZone = TimeZone.current
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let dateString = formatter.string(from: now)
-        return dateString
-    }
 }
 
 
 
 // MARK:- DZNEmptyDataSet
 extension BascetUserTableViewController{
-
+    
     func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
         let str = "В корзине пока пусто"
         let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .headline)]

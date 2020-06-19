@@ -4,6 +4,7 @@ import Firebase
 class ComplitionAllClientViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var buttonEvictionClient: UIButton!
+    
     var _rooms = [Rooms]()
     var _services = [Servicess]()
     var _dictKey : String = ""
@@ -61,61 +62,26 @@ extension ComplitionAllClientViewController: UITableViewDataSource,UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0{
+        switch indexPath.section {
+        case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellProfile", for: indexPath) as! ComlitionAllCellTableViewCell
             let profile = sortedProfile[indexPath.row]
-            cell.fullNameLabel.text = profile.fullName
-            cell.emailLabel.text = profile.email
-            cell.passportLabel.text = profile.passport
-            cell.telephoneLabel.text = profile.phoneNumber
-            cell.passwordLabel.text = profile.password
-            cell.userIdLabel.text = profile.userId
+            cell.configureProfile(with: profile)
             return cell
-        }else if indexPath.section == 1{
+        case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellRooms", for: indexPath) as! ComlitionAllCellTableViewCell
             let rooms = sortedArrayRooms[indexPath.row]
             cell.titleLabel.text = rooms.title
-            cell.priceLabel.text = rooms.price! + " руб."
-            cell.statusLabel.text = "\(rooms.dateArrival!)-\(rooms.dateDeparture!)"
-            cell.imageViewLabel.contentMode = .scaleAspectFill
-            cell.imageViewLabel.layer.cornerRadius = 20
-            cell.imageViewLabel.clipsToBounds = true
-            if let imageLogo = rooms.image{
-                let url = URL(string: imageLogo)!
-                URLSession.shared.dataTask(with: url) { (data, response, error) in
-                    if error != nil {
-                        print(error!)
-                        return
-                    }
-                    DispatchQueue.main.async {
-                        cell.imageViewLabel?.image = UIImage(data: data!)
-                    }
-                }.resume()
-            }
+            cell.configureRooms(with: rooms)
             return cell
-        }else {
+        default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellServices", for: indexPath) as! ComlitionAllCellTableViewCell
             let services = sortedArrayServices[indexPath.row]
-            cell.titleLabel.text = services.title!
-            cell.priceLabel.text = services.price! + " руб."
-            cell.statusLabel.text = services.dateComplitionServ
-            cell.imageViewLabel.contentMode = .scaleAspectFill
-            cell.imageViewLabel.layer.cornerRadius = 20
-            cell.imageViewLabel.clipsToBounds = true
-            if let imageLogo = services.image{
-                let url = URL(string: imageLogo)!
-                URLSession.shared.dataTask(with: url) { (data, response, error) in
-                    if error != nil {
-                        print(error!)
-                        return
-                    }
-                    DispatchQueue.main.async {
-                        cell.imageViewLabel?.image = UIImage(data: data!)
-                    }
-                }.resume()
-            }
+            cell.configureService(with: services)
             return cell
         }
+        
+        
     }
 }
 // MARK: - sorted Rooms and Services
@@ -131,8 +97,6 @@ extension ComplitionAllClientViewController{
             }
         }
     }
-    
-    
     func sortedServic(){
         for item in _services{
             if [item.dateApprovedOrders] == [_dictKey] {
@@ -143,12 +107,11 @@ extension ComplitionAllClientViewController{
             }
         }
     }
-    
     func sortedProfilefunc(){
         for itemProfile in _profile{
             for itemRooms in sortedArrayRooms{
                 if itemProfile.email == itemRooms.userId {
-                    let prof = userAndAdmin(email: itemProfile.email!, fullName: itemProfile.fullName!, isAdmin: itemProfile.isAdmin!, passport: itemProfile.passport!, password: itemProfile.password!, userId: itemProfile.userId!, phoneNumber: itemProfile.phoneNumber!, dataTimeOrder: itemProfile.dataTimeOrder!, dateApprovedOrders: itemProfile.dateApprovedOrders!)
+                    let prof = userAndAdmin(email: itemProfile.email!, fullName: itemProfile.fullName!, isAdmin: itemProfile.isAdmin!, password: itemProfile.password!, userId: itemProfile.userId!, phoneNumber: itemProfile.phoneNumber!, dataTimeOrder: itemProfile.dataTimeOrder!, dateApprovedOrders: itemProfile.dateApprovedOrders!)
                     self.sortedProfile.append(prof)
                     self.sectionContent.append(prof)
                     tableView.reloadData()

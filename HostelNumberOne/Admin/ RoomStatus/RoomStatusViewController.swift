@@ -40,25 +40,7 @@ extension RoomStatusViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RoomStatusTableViewCell
         let room = rooms[indexPath.row]
-        print(rooms.count)
-        cell.titileLabel.text = room.title
-        cell.arrivalDateLabel.text = " Дата заезда: " + room.dateArrival!
-        cell.dateDepartureLabel.text = " Дата выезда: " + room.dateDeparture!
-        cell.imageViewLabel.contentMode = .scaleAspectFill
-        cell.imageViewLabel.layer.cornerRadius = 20
-        cell.imageViewLabel.clipsToBounds = true
-        if let imageLogo = room.image{
-            let url = URL(string: imageLogo)!
-            URLSession.shared.dataTask(with: url) { (data, response, error) in
-                if error != nil {
-                    print(error!)
-                    return
-                }
-                DispatchQueue.main.async {
-                    cell.imageViewLabel?.image = UIImage(data: data!)
-                }
-            }.resume()
-        }
+        cell.configure(with: room)
         return cell
     }
 }
@@ -110,7 +92,7 @@ extension RoomStatusViewController{
                                     self.tableView.reloadData()
                                 }
                                 for item in value.Profile{
-                                    let _profil = userAndAdmin(email: item.value.email!, fullName: item.value.fullName!, isAdmin: item.value.isAdmin!, passport: item.value.passport!, password: item.value.password!, userId: item.value.userId!, phoneNumber: item.value.phoneNumber!, dataTimeOrder: item.value.dataTimeOrder!, dateApprovedOrders:item.value.dateApprovedOrders!)
+                                    let _profil = userAndAdmin(email: item.value.email!, fullName: item.value.fullName!, isAdmin: item.value.isAdmin!, password: item.value.password!, userId: item.value.userId!, phoneNumber: item.value.phoneNumber!, dataTimeOrder: item.value.dataTimeOrder!, dateApprovedOrders:item.value.dateApprovedOrders!)
                                     self.profile.append(_profil)
                                     self.tableView.reloadData()
                                 }
@@ -143,6 +125,4 @@ extension RoomStatusViewController{
     func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
         return UIImage(named: "roms35")
     }
-    
-    
 }

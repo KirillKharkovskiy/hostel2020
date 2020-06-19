@@ -45,16 +45,12 @@ class roomsDemostretionViewController: UIViewController {
             reservationCheck()
         }
     }
-    
     func reservationCheck(){
         arrayOrderArrival.removeAll()
         arrayOrderDeparture.removeAll()
-        
-        
         if _rooms.count == 0 { //если массив пустой то его нет в ветки брони
             buscet()
             self.showAlert(title: "Номер добавлен", message: "")
-            
         } else { // если в нем лежит что-то идет проверка на даты
             for i in _rooms{
                 if i.dateArrival == nil || i.dateDeparture == nil{

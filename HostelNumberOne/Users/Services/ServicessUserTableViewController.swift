@@ -60,27 +60,10 @@ extension ServicessUserTableViewController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ServicessUserTableViewCell
         let _services = servic[indexPath.row]
-        cell.titleTextLabel.text = _services.title
-        cell.priceTextLabel.text =  _services.price! + " руб"
-        cell.accessoryType = .disclosureIndicator
-        cell.imageLabel.contentMode = .scaleAspectFill
-        cell.imageLabel.layer.cornerRadius = 20
-        cell.imageLabel.clipsToBounds = true
-        if let imageLogo = _services.image{
-            let url = URL(string: imageLogo)!
-            URLSession.shared.dataTask(with: url) { (data, response, error) in
-                if error != nil {
-                    print(error!)
-                    return
-                }
-                DispatchQueue.main.async {
-                    cell.imageLabel?.image = UIImage(data: data!)
-                }
-            }.resume()
-        }
+        cell.configure(with: _services)
         return cell
     }
-    func roomsToDisplay(indexPath : IndexPath) -> Servicess { //метод для понимания что выводить на экран /либо по поиску либо все рестораны
+    func roomsToDisplay(indexPath : IndexPath) -> Servicess { 
         let _serv : Servicess
         _serv = servic[indexPath.row]
         return _serv

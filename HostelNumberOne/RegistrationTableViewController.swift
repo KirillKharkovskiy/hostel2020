@@ -10,7 +10,6 @@ class RegistrationTableViewController: UITableViewController {
     var user : Users!
     
     @IBOutlet weak var fullNameTextField: UITextField!
-    @IBOutlet weak var passportTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var phoneNumberField: UITextField!
@@ -22,14 +21,12 @@ class RegistrationTableViewController: UITableViewController {
         
     }
     func setupkeyboard(){
-        passportTextField.keyboardType = .asciiCapableNumberPad
         emailTextField.keyboardType = .emailAddress
         phoneNumberField.keyboardType = .asciiCapableNumberPad
     }
     
     @IBAction func registerTapped(_ sender: UIBarButtonItem) {
-        
-        guard let fullName = fullNameTextField.text, let passport = passportTextField.text, let email = emailTextField.text, let password = passwordTextField.text, let phoneNumber = phoneNumberField.text, !fullName.isEmpty , !passport.isEmpty, !email.isEmpty, !password.isEmpty, !phoneNumber.isEmpty else {
+        guard let fullName = fullNameTextField.text, let email = emailTextField.text, let password = passwordTextField.text, let phoneNumber = phoneNumberField.text, !fullName.isEmpty , !email.isEmpty, !password.isEmpty, !phoneNumber.isEmpty else {
             showAlert(title: "Error!", message: "Вы заполнили не все поля!")
             return
         }
@@ -39,7 +36,7 @@ class RegistrationTableViewController: UITableViewController {
             
             if error == nil && user != nil {
                 print("User created!")
-                let profil = userAndAdmin(email: email, fullName: fullName, isAdmin:"false", passport: passport, password: password, userId: uid, phoneNumber: phoneNumber, dataTimeOrder: "non", dateApprovedOrders: "non")
+                let profil = userAndAdmin(email: email, fullName: fullName, isAdmin:"false", password: password, userId: uid, phoneNumber: phoneNumber, dataTimeOrder: "non", dateApprovedOrders: "non")
                 if let fulname = profil.fullName{
                     let userRef = databaseRef.child(fulname.lowercased())
                     userRef.setValue(profil.convertToDictionary())

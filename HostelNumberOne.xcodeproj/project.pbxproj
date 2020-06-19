@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		000433B95983F40F5CA89613 /* Pods_HostelNumberOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 629C05C0647209F9689D365D /* Pods_HostelNumberOne.framework */; };
-		381ABE5B238D6726007EFCE6 /* ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381ABE5A238D6726007EFCE6 /* ShowAlert.swift */; };
+		381ABE5B238D6726007EFCE6 /* extensionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381ABE5A238D6726007EFCE6 /* extensionUIViewController.swift */; };
 		381ABE5D238D69BA007EFCE6 /* AddServicessAdminTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381ABE5C238D69BA007EFCE6 /* AddServicessAdminTableViewController.swift */; };
 		381ABE5F238D6A1A007EFCE6 /* ServicessUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381ABE5E238D6A1A007EFCE6 /* ServicessUserTableViewController.swift */; };
 		ED03EF552449C06E00C51749 /* RoomStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED03EF542449C06E00C51749 /* RoomStatusTableViewCell.swift */; };
@@ -58,7 +58,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		381ABE5A238D6726007EFCE6 /* ShowAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowAlert.swift; path = HostelNumberOne/ShowAlert.swift; sourceTree = "<group>"; };
+		381ABE5A238D6726007EFCE6 /* extensionUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensionUIViewController.swift; sourceTree = "<group>"; };
 		381ABE5C238D69BA007EFCE6 /* AddServicessAdminTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddServicessAdminTableViewController.swift; path = HostelNumberOne/Admin/services/AddServicessAdminTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		381ABE5E238D6A1A007EFCE6 /* ServicessUserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicessUserTableViewController.swift; sourceTree = "<group>"; };
 		591482C67BCE8234AA84CCF0 /* Pods-HostelNumberOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HostelNumberOne.release.xcconfig"; path = "Target Support Files/Pods-HostelNumberOne/Pods-HostelNumberOne.release.xcconfig"; sourceTree = "<group>"; };
@@ -79,7 +79,7 @@
 		ED2FC9F8235CE55400EF3DA2 /* STOPSTOPTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STOPSTOPTableViewController.swift; sourceTree = "<group>"; };
 		ED38F7CD238B14B600840C88 /* RegistrationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationTableViewController.swift; sourceTree = "<group>"; };
 		ED3DA85E2372D07E0010673F /* BascetUserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BascetUserTableViewController.swift; sourceTree = "<group>"; };
-		ED43E6A223679ECA00D80C43 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		ED43E6A223679ECA00D80C43 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = File.swift; path = ../File.swift; sourceTree = "<group>"; };
 		ED451A902402A47A0029D7C8 /* extensionDemonstretionRooms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionDemonstretionRooms.swift; sourceTree = "<group>"; };
 		ED452090236082B8004EB338 /* ServicessUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicessUserTableViewCell.swift; sourceTree = "<group>"; };
 		ED4E227624352B55004F1CF1 /* ComplitonOrderAdminClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplitonOrderAdminClient.swift; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 		EDCB6AEE246ACBC400FB9819 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+EmptyDataSet.m"; path = "../../../../DZNEmptyDataSet-master/Source/UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
 		EDCB6AF0246ACC1600FB9819 /* HostelNumberOne-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HostelNumberOne-Bridging-Header.h"; sourceTree = "<group>"; };
 		EDD47D9123E3118400A33EE3 /* AddRoomsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddRoomsTableViewController.swift; path = ../../AddRoomsTableViewController.swift; sourceTree = "<group>"; };
-		EDD47D9323E3426E00A33EE3 /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
+		EDD47D9323E3426E00A33EE3 /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Encodable.swift; path = ../Encodable.swift; sourceTree = "<group>"; };
 		EDD5C8C8241AD438003DCFB1 /* userServicesDemonstrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userServicesDemonstrationViewController.swift; sourceTree = SOURCE_ROOT; };
 		EDD80CA623FC203B006B87D7 /* roomsDemostretionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = roomsDemostretionViewController.swift; sourceTree = "<group>"; };
 		EDED5EF62359F29B00264388 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -156,9 +156,6 @@
 			isa = PBXGroup;
 			children = (
 				EDDC931C23D9B860000AE4E3 /* model */,
-				ED43E6A223679ECA00D80C43 /* File.swift */,
-				EDD47D9323E3426E00A33EE3 /* Encodable.swift */,
-				381ABE5A238D6726007EFCE6 /* ShowAlert.swift */,
 				ED11BA802355DC350081EE31 /* HostelNumberOne */,
 				ED11BA7F2355DC350081EE31 /* Products */,
 				8A67BE0AA4D5C6BD34E64480 /* Pods */,
@@ -177,6 +174,7 @@
 		ED11BA802355DC350081EE31 /* HostelNumberOne */ = {
 			isa = PBXGroup;
 			children = (
+				ED42E69B247B15D7008E5B68 /* Setup */,
 				EDDC931D23D9B8C9000AE4E3 /* MainLoginAndRegistration */,
 				ED71E60A2359EF3700AF6619 /* Users */,
 				ED71E6052359BCCD00AF6619 /* Admin */,
@@ -187,6 +185,16 @@
 				ED11BA8D2355DC350081EE31 /* Info.plist */,
 			);
 			path = HostelNumberOne;
+			sourceTree = "<group>";
+		};
+		ED42E69B247B15D7008E5B68 /* Setup */ = {
+			isa = PBXGroup;
+			children = (
+				381ABE5A238D6726007EFCE6 /* extensionUIViewController.swift */,
+				EDD47D9323E3426E00A33EE3 /* Encodable.swift */,
+				ED43E6A223679ECA00D80C43 /* File.swift */,
+			);
+			name = Setup;
 			sourceTree = "<group>";
 		};
 		ED4E227824352B68004F1CF1 /* ComplitionOrder */ = {
@@ -505,7 +513,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED03EF552449C06E00C51749 /* RoomStatusTableViewCell.swift in Sources */,
-				381ABE5B238D6726007EFCE6 /* ShowAlert.swift in Sources */,
+				381ABE5B238D6726007EFCE6 /* extensionUIViewController.swift in Sources */,
 				ED5F700D23F19A89002BD9FF /* orderViewCell.swift in Sources */,
 				ED3DA85F2372D07E0010673F /* BascetUserTableViewController.swift in Sources */,
 				ED68DEDC245D8FF200393CB5 /* editprofile2TableViewController.swift in Sources */,

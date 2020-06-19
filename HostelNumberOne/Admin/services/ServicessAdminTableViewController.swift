@@ -52,31 +52,13 @@ extension ServicessAdminTableViewController{
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return servicess.count
     }
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ServicessAdminTableViewCell
         let _services = servicess[indexPath.row]
-        cell.titleTextLabel.text = _services.title
-        cell.priceTextLabel.text = _services.price! + " руб"
-        cell.imageLabel.contentMode = .scaleAspectFill
-        cell.imageLabel.layer.cornerRadius = 20
-        cell.imageLabel.clipsToBounds = true
-        if let imageLogo = _services.image{
-            let url = URL(string: imageLogo)!
-            URLSession.shared.dataTask(with: url) { (data, response, error) in
-                if error != nil {
-                    print(error!)
-                    return
-                }
-                DispatchQueue.main.async {
-                    cell.imageLabel?.image = UIImage(data: data!)
-                }
-            }.resume()
-        }
+        cell.configure(with: _services)
         return cell
     }
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
